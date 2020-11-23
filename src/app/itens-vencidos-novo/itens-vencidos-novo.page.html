@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Atualizar Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <IMG src="https://icons-for-free.com/iconfiles/png/512/goods+item+label+product+tag+tally+icon-1320168020112074005.png" width="100%">
+  <!--<ion-button expand="block" (click)="foto()" color="danger">Inserir Foto</ion-button>-->
+  <form [formGroup]="formGroup">
+   
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data Vencimento</ion-label>
+      <ion-input type="text" formControlName="dataVencimento"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Final Codigo</ion-label>
+      <ion-input type="text" formControlName="fimCodigo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantidade</ion-label>
+      <ion-input type="text" formControlName="quantidade"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Assinatura</ion-label>
+      <ion-input type="text" formControlName="ass"></ion-input>
+    </ion-item>
+    <ion-button (click)="cadastrar()" expand="full">
+      <ion-icon name="create-outline"></ion-icon></ion-button>
+
+  </form>
+</ion-content>
