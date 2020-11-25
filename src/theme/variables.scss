@@ -179,7 +179,9 @@ IMG.displayed {
 
   .ios body {
     // cor #212E6FFE para achei Libras
-    --ion-background-color: #000000;
+    /**Cores Antigas**/
+    //--ion-background-color: #000000;
+    --ion-background-color:#212E6FFE;
     --ion-background-color-rgb: 0,0,0;
 
     --ion-text-color: #ffffff;
@@ -204,12 +206,15 @@ IMG.displayed {
     --ion-color-step-850: #d9d9d9;
     --ion-color-step-900: #e6e6e6;
     --ion-color-step-950: #f2f2f2;
-
-    --ion-toolbar-background: #0d0d0d;
-
-    --ion-item-background: #000000;
-
-    --ion-card-background: #1c1c1d;
+/**Cores Antigas**/
+    --ion-toolbar-background: #212E6FFE;
+    //--ion-toolbar-background: #0d0d0d;
+/**Cores Antigas**/
+    --ion-item-background: #212E6FFE;
+    //--ion-item-background: #000000;
+/**Cores Antigas**/
+    --ion-card-background:#212E6FFE;
+   // --ion-card-background: #1c1c1d;
   }
 
 
@@ -219,7 +224,7 @@ IMG.displayed {
    */
 
   .md body {
-    --ion-background-color: #121212;
+    --ion-background-color: #212E6FFE;
     --ion-background-color-rgb: 18,18,18;
 
     --ion-text-color: #ffffff;
@@ -247,12 +252,18 @@ IMG.displayed {
     --ion-color-step-900: #e7e7e7;
     --ion-color-step-950: #f3f3f3;
 
-    --ion-item-background: #1e1e1e;
+    /**Cores Antigas**/
+    --ion-item-background: #212E6FFE;
+   // --ion-item-background: #1e1e1e;
+    /**Cores Antigas**/
 
-    --ion-toolbar-background: #1f1f1f;
-
-    --ion-tab-bar-background: #1f1f1f;
-
-    --ion-card-background: #1e1e1e;
+    --ion-toolbar-background: #212E6FFE;
+   // --ion-toolbar-background: #1f1f1f;
+/**Cores Antigas**/
+    --ion-tab-bar-background: #212E6FFE;
+    //--ion-tab-bar-background: #1f1f1f;
+/**Cores Antigas**/
+    --ion-card-background: #212E6FFE;
+    //--ion-card-background: #1e1e1e;
   }
 }

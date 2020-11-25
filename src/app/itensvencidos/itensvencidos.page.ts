@@ -14,6 +14,7 @@ export class ItensvencidosPage implements OnInit {
   imagem: any = null;
   itensVencidos: ItenVencido[] = [];
   itenVencido: ItenVencido = new ItenVencido();
+  
   constructor(
     private itenVencidoServ : ItenVencidoService,
     private template: TemplateService,

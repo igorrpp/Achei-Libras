@@ -47,6 +47,11 @@ export class AppComponent implements OnInit {
       url: '/cadastrar-interprete',
       icon: 'create'
     },
+    {
+      title: 'interpretes',
+      url: '/interpretes',
+      icon: 'create'
+    },
     
     {
       title: 'Cadastrar cliente',

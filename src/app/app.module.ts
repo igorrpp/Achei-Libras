@@ -19,6 +19,7 @@ import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AngularFireAuth} from '@angular/fire/auth';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { AngularFireAuth} from '@angular/fire/auth';
     HttpClientModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    
     
     
   

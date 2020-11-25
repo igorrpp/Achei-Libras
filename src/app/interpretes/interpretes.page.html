@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Interpretes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+<ion-list-header lines="inset">
+  <ion-label>Recentes </ion-label>
+  
+  <ion-button (click)="ionViewWillEnter()" ><ion-icon slot="start" name="refresh" ></ion-icon></ion-button>
+  
+  
+</ion-list-header>
+<ion-item lines="none" *ngFor="let i of interpretes">
+  <ion-avatar slot="start">
+    <img  [src]="imagem" *ngIf="imagem">
+  </ion-avatar>
+  
+  <ion-label (click)="detalhe(i)">
+    <h3>Grupo {{i.grupo}}</h3>
+    <h1>Nome:{{i.nome}}</h1>
+    <h3>CEP {{i.cep}}</h3>
+    <h3>Endereco {{i.endereco}}</h3>
+    <h3>Data: {{i.username}}</h3>
+    
+    
+  </ion-label>
+</ion-item>
+</ion-list>
+
+
+</ion-content>
+

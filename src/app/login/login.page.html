@@ -9,20 +9,22 @@
     <ion-list lines="full" class="ion-no-margin">
       <ion-list-header lines="full">
         <ion-label>
-          Login
+         
         </ion-label>
       </ion-list-header>
 
       <ion-item>
-
-        <!-- <ion-icon name="person-circle-outline" size="large" class="person-circle-outline"></ion-icon>-->
-        <ion-label position="fixed"> E-mail</ion-label> 
+        
+        <img src="assets/img/user.png" width="30px"/>
+        <!-- <ion-label position="fixed"> E-mail</ion-label> -->
         <ion-input placeholder="Insira seu E-mail" formControlName="username"></ion-input>
       </ion-item>
 
       <ion-item>
-        <!--<ion-icon name="lock-closed" class="ock-closed"></ion-icon>-->
-         <ion-label position="fixed"> Senha</ion-label> 
+        <ion-icon name="locked" class="lock-closed"></ion-icon>
+        <!-- <ion-label position="fixed"> Senha</ion-label> -->
+        <img src="assets/lock.png" width="40px"/>
+        
         <ion-input type="password" placeholder="********" formControlName="password"></ion-input>
       </ion-item>
     </ion-list>
@@ -30,6 +32,6 @@
       <ion-icon name="log-in-sharp"></ion-icon>
     </ion-button>
     <ion-button expand="block" (click)="redirecionar()" color="warning">Quer ser cliente?</ion-button>
-    <ion-button expand="block" (click)="redirecionar2()" color="new">Quer ser um interprete?</ion-button>
+    <ion-button expand="block" (click)="redirecionar2()" color="danger">Quer ser um interprete?</ion-button>
   </form>
 </ion-content>

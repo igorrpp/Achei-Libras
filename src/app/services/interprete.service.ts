@@ -8,36 +8,31 @@ import { UtilService } from './ultil.service';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { File } from '@ionic-native/file/ngx';
+
 @Injectable({
   providedIn: 'root',
 })
-export class ItenVencidoService {
-    
+export class InterpreteService {
+
 
   fotoBlob: any = null;
 
-  collection: string = 'itenVencido';
-  itenVencido: Observable<any[]>;
+  collection: string = 'Cadastros_de_interpretes';
+  interpretes: Observable<any[]>;
 
   constructor(private http: HttpClient,
     private firestore: AngularFirestore,
     private camera: Camera,
-    private util : UtilService,
-    private fireStorage : AngularFireStorage,
+    private util: UtilService,
+    private fireStorage: AngularFireStorage,
     private fileChooser: FileChooser,
     private file: File,
     private webview: WebView,
- ) { }
+  ) { }
 
-  cadastrar(obj: any): Observable<any> {
-    const observable =
-      from(this.firestore.collection('itenVencido').add(obj));
-    return observable;
-  }
 
   listar(): Observable<any> {
-    return this.firestore.collection(this.collection)
-      .snapshotChanges();
+    return this.firestore.collection(this.collection).snapshotChanges();
   }
 
   buscaPorId(id: string): Observable<any> {
@@ -47,13 +42,13 @@ export class ItenVencidoService {
 
   atualizar(id: string, dados: any): Observable<any> {
     const observable =
-      from(this.firestore.collection('itenVencido').doc(id).set(dados));
+      from(this.firestore.collection('Cadastros_de_interpretes').doc(id).set(dados));
     return observable;
   }
 
   excluir(id: string): Observable<any> {
     const observable =
-      from(this.firestore.collection('itenVencido').doc(`${id}`).delete());
+      from(this.firestore.collection('Cadastros_de_interpretes').doc(`${id}`).delete());
     return observable;
   }
 
@@ -75,8 +70,8 @@ export class ItenVencidoService {
       observe.error(err);
     })
   });
-  obterFotoArquivo = new Observable((observe)=>{
-    this.fileChooser.open({ "mime": "image/jpeg" }).then(uri=>{
+  obterFotoArquivo = new Observable((observe) => {
+    this.fileChooser.open({ "mime": "image/jpeg" }).then(uri => {
 
 
       this.file.resolveLocalFilesystemUrl(uri).then((data: any) => {
@@ -90,7 +85,7 @@ export class ItenVencidoService {
           reader.onloadend = (encodeFile: any) => {
             var fileFinal = encodeFile.target.result;
             this.fotoBlob = fileFinal;
-           // this.fotoBlob = this.util.dataUriToBlob(fileFinal);
+            // this.fotoBlob = this.util.dataUriToBlob(fileFinal);
 
           }
           reader.readAsDataURL(file);
@@ -105,9 +100,9 @@ export class ItenVencidoService {
 
     let fotoBlob = this.util.dataUriToBlob(this.fotoBlob);
     let observable = from(
-      this.fireStorage.storage.ref().child(`/itensVencidos/${nome}.jpg`).put(fotoBlob));
+      this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${nome}.jpg`).put(fotoBlob));
     return observable;
   }
 
- 
+
 }
