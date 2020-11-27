@@ -82,6 +82,13 @@ const routes: Routes = [
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
+  {
+    path: 'interpretes-detalhe/:id',
+    loadChildren: () => import('./interpretes-detalhe/interpretes-detalhe.module').then( m => m.InterpretesDetalhePageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
+  },
+  
 
 ];
 

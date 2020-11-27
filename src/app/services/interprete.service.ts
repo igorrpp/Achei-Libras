@@ -40,6 +40,7 @@ export class InterpreteService {
       (this.collection).doc(id).snapshotChanges();
   }
 
+  
   atualizar(id: string, dados: any): Observable<any> {
     const observable =
       from(this.firestore.collection('Cadastros_de_interpretes').doc(id).set(dados));

@@ -5,6 +5,9 @@ import { MenuController, NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TemplateService } from '../services/template.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Interprete } from '../model/interprete';
+import { Firebase } from '@ionic-native/firebase';
+
 
 
 @Component({
@@ -14,7 +17,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class LoginPage implements OnInit {
   formGroup: FormGroup;
-  public teste: any = {};
+  interprete: Interprete = new Interprete();
+
+ 
+ 
 
   constructor(private formBuilder: FormBuilder,
     private auth: AngularFireAuth,
@@ -23,6 +29,8 @@ export class LoginPage implements OnInit {
     private template: TemplateService,
     private afs: AngularFirestore,
     
+   
+
 
   ) {
     this.iniciarForm();
@@ -31,38 +39,44 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  
-    
-  autenticar() {
+
+
+  async autenticar() {
 
     let user = this.formGroup.controls['username'].value;
     let pass = this.formGroup.controls['password'].value;
 
 
-console.log(user, pass);
+    console.log(user, pass);
 
-  this.template.loading.then(load => {
+    this.template.loading.then(load => {
 
-     load.present();
-      // admin2admin.com 123456
+      load.present();
+     
 
-      this.auth.signInWithEmailAndPassword(user, pass).then(data => {
+      this.auth.signInWithEmailAndPassword(user, pass).then(async data => {
 
-       load.dismiss();
+        load.dismiss();
 
-        this.menuCtrl.enable(true);
-        this.navCtrl.navigateRoot(['itensvencidos']);
-        console.log(user);
+      // Constante serve para capturar o "uid" o id do firebase
+        const infor = await this.auth.signInWithEmailAndPassword(user, pass);
         
+        
+        
+        this.menuCtrl.enable(true);
+        this.navCtrl.navigateRoot(['interpretes']);
+        console.log(user);
+
 
       }).catch(data => {
         load.dismiss();
         this.template.myAlert("Usuário ou senha inválidos");
 
       });
-  })
+    })
 
   }
+
 
   redirecionar() {
     this.navCtrl.navigateRoot(['cadastrar-cliente']);
@@ -75,8 +89,8 @@ console.log(user, pass);
 
   iniciarForm() {
     this.formGroup = this.formBuilder.group({
-      username: ['igorpires_rj@hotmail.com', [Validators.email]],
-      password: ['110801', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]]
+      username: ['', [Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]]
     })
   }
 }

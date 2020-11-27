@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
       url: '/cadastrar-cliente',
       icon: 'create'
     },
-
+    
     
   ];
   /*public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];*/

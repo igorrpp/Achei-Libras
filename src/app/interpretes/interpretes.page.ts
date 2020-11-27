@@ -50,10 +50,10 @@ export class InterpretesPage implements OnInit {
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     }, err => {
-      this.imagem = 'https://icons-for-free.com/iconfiles/png/512/goods+item+label+product+tag+tally+icon-1320168020112074005.png';
+      this.imagem = 'assets/img/user.png';
     })
   }
 detalhe(obj : Interprete){
-  this.navCtrl.navigateForward(['//', obj.id]);
+  this.navCtrl.navigateForward(['/interpretes-detalhe/', obj.id]);
 }
 }
