@@ -16,5 +16,30 @@
 }
 
 .logo{
+   
+    image-rendering: auto;
+}
+
+.user{
+   
+    height: 30px;
+    
     float: left;
+    
+    color: white;
+}
+
+.senha{
+    float: left;
+    color:white;
+}
+
+.fundo{
+    background-color: white;
+    color: black;
+}
+#slogan{
+  
+    text-align: center;
+    text-size-adjust: 40px;
 }

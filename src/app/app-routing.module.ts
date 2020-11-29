@@ -88,6 +88,16 @@ const routes: Routes = [
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
+  {
+    path: 'clientes',
+    loadChildren: () => import('./clientes/clientes.module').then( m => m.ClientesPageModule)
+  },
+  {
+    path: 'clientes-detalhe/:id',
+    loadChildren: () => import('./clientes-detalhe/clientes-detalhe.module').then( m => m.ClientesDetalhePageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
+  },
   
 
 ];

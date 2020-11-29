@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Lista de interpretes</ion-title>
+    <ion-title>Clientes</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
   
   
 </ion-list-header>
-<ion-item lines="none" *ngFor="let i of interpretes">
+<ion-item lines="none" *ngFor="let i of clientes">
   <ion-avatar slot="start">
     <img  [src]="imagem" *ngIf="imagem">
   </ion-avatar>
@@ -27,7 +27,8 @@
     <h3>CEP {{i.cep}}</h3>
     <h3>Endereco {{i.endereco}}</h3>
     <h3>Data: {{i.username}}</h3>
- 
+    <h4>Deficiência: {{i.deficiencia}}</h4>
+   
     
     
   </ion-label>

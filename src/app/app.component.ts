@@ -47,7 +47,14 @@ export class AppComponent implements OnInit {
       url: '/cadastrar-interprete',
       icon: 'create'
     },
+    // Opção para ficar no ap do interprete
     {
+      title: 'cliente',
+      url: '/clientes',
+      icon: 'create'
+    },
+     // Opção para ficar no ap do interprete
+     {
       title: 'interpretes',
       url: '/interpretes',
       icon: 'create'
