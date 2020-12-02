@@ -1,39 +1,39 @@
 <ion-header>
 
 </ion-header>
-<img class="logo" src="assets/img/logo.png" width="1500px" height="250px" />
-<ion-content >
-  <form [formGroup]="formGroup" >
-    <ion-list lines="full" class="ion-no-margin" >
-      <ion-list-header lines="full" >
 
+<ion-content>
+  <form [formGroup]="formGroup">
+    <ion-list lines="full" class="ion-no-margin">
+      <ion-list-header lines="full">
 
+        <img class="logo" src="assets/img/logo3.png" width="320px" height="250px" />
         <ion-label>
-         
-        </ion-label>
-      </ion-list-header >
 
-      <ion-icon class="user" size="large" name="person-sharp"></ion-icon>
-      <ion-item >
-       
+        </ion-label>
+      </ion-list-header>
+
+
+      <ion-item>
+        <ion-icon class="user" size="large" name="person-sharp"></ion-icon>
         <ion-input class="fundo" placeholder="Insira seu e-mail" formControlName="username"></ion-input>
       </ion-item>
 
-      <ion-icon class="senha" size="large" name="lock-closed"></ion-icon>
-      <ion-item >
-        
-        <ion-input  class="fundo" type="password" placeholder="********" formControlName="password"></ion-input>
+      <ion-item>
+
+        <ion-icon class="senha" size="large" name="lock-closed"></ion-icon>
+        <ion-input class="fundo" type="password" placeholder="********" formControlName="password"></ion-input>
       </ion-item>
 
     </ion-list>
 
-    <ion-button expand="block"  (click)="autenticar()">
-     Entrar
+    <ion-button expand="block" (click)="autenticar()">
+      Entrar
     </ion-button>
 
-    <ion-button expand="block"  size="small"  (click)="redirecionar()" color="new">Ainda não tem Cadastro?</ion-button>
+    <ion-button expand="block" size="small" (click)="redirecionar()" color="light">Ainda não tem Cadastro?</ion-button>
 
     <!--<ion-button expand="block"  size="small"  (click)="redirecionar2()" color="danger">Quer ser um interprete?</ion-button>
     -->
-    </form>
+  </form>
 </ion-content>

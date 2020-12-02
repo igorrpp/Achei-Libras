@@ -64,7 +64,7 @@ export class LoginPage implements OnInit {
         
         
         this.menuCtrl.enable(true);
-        this.navCtrl.navigateRoot(['interpretes']);
+        this.navCtrl.navigateRoot(['clientes']);
         console.log(user);
 
 
@@ -89,8 +89,8 @@ export class LoginPage implements OnInit {
 
   iniciarForm() {
     this.formGroup = this.formBuilder.group({
-      username: ['', [Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]]
+      username: ['billy@ig.com', [Validators.email]],
+      password: ['110801', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]]
     })
   }
 }

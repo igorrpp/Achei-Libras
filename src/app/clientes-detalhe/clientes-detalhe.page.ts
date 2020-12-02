@@ -31,22 +31,22 @@ export class ClientesDetalhePage implements OnInit {
         this.cliente = data.payload.data();
         this.cliente.id = data.payload.id as string;
         console.log(this.cliente);
-       //his.downloadImage();
+       this.downloadImage();
       })
     })
     
   }
 
- /* downloadImage() {
-    let ref = this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${this.interprete.id}.jpg`)
+ downloadImage() {
+    let ref = this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${this.cliente.id}.jpg`)
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     }, err => {
       this.imagem =
-       'https://uploads.metropoles.com/wp-content/uploads/2019/08/05090905/perfilsemfoto.jpg';
+       'assets/img/user.png';
     })
   }
 
-*/
+
 
 }

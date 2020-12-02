@@ -12,7 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
-    
+
     {
       title: 'itensVencidos',
       url: '/itensvencidos',
@@ -22,51 +22,52 @@ export class AppComponent implements OnInit {
       title: 'Novo Item',
       url: '/itens-vencidos-novo',
       icon: 'add-circle'
-      
+
     },
 
     {
       title: 'Maps',
       url: '/maps',
       icon: 'map'
-  
+
     },
     {
       title: 'Maps Geolocation',
       url: '/maps-geolocation',
       icon: 'location'
     },
+
     
+    
+    // Opção para ficar no ap do interprete
+    {
+      title: 'interpretes',
+      url: '/interpretes',
+      icon: 'people-circle'
+    },
+    {
+      title: 'Cadastrar Interprete',
+      url: '/cadastrar-interprete',
+      icon: 'clipboard'
+    },
+    // Opção para ficar no ap do interprete
+    {
+      title: 'clientes',
+      url: '/clientes',
+      icon: 'people'
+    },
+    {
+      title: 'Cadastrar cliente',
+      url: '/cadastrar-cliente',
+      icon: 'clipboard'
+
+    },
     {
       title: 'Sair',
       url: '/logoff',
       icon: 'power'
     },
-    {
-      title: 'Cadastrar usuario',
-      url: '/cadastrar-interprete',
-      icon: 'create'
-    },
-    // Opção para ficar no ap do interprete
-    {
-      title: 'cliente',
-      url: '/clientes',
-      icon: 'create'
-    },
-     // Opção para ficar no ap do interprete
-     {
-      title: 'interpretes',
-      url: '/interpretes',
-      icon: 'create'
-    },
-    
-    {
-      title: 'Cadastrar cliente',
-      url: '/cadastrar-cliente',
-      icon: 'create'
-    },
-    
-    
+
   ];
   /*public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];*/
 

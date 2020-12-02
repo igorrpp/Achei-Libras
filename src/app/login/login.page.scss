@@ -20,19 +20,14 @@
     image-rendering: auto;
 }
 
-.user{
+.user, .senha{
    
     height: 30px;
-    
-    float: left;
-    
-    color: white;
+      
+    color: rgba(3, 45, 100, 0.74);
 }
 
-.senha{
-    float: left;
-    color:white;
-}
+
 
 .fundo{
     background-color: white;
@@ -42,4 +37,11 @@
   
     text-align: center;
     text-size-adjust: 40px;
+}
+--ion-item-background{
+    background-color: yellow;
+    color: yellow;
+}
+ion-content{
+    background-color: rgb(215, 255, 255);
 }
