@@ -47,6 +47,9 @@ export class ClientesDetalhePage implements OnInit {
     })
   }
 
+  chat(obj : Cliente){
+    this.navCtrl.navigateForward(['/chat/']);
+  }
 
 
 }
