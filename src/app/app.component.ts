@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
 
-    {
+  /*  {
       title: 'itensVencidos',
       url: '/itensvencidos',
       icon: 'pricetag'
@@ -22,6 +22,25 @@ export class AppComponent implements OnInit {
       title: 'Novo Item',
       url: '/itens-vencidos-novo',
       icon: 'add-circle'
+
+    },*/
+    {
+      title: ' recuperar-senha',
+      url: '/recuperar-senha',
+      icon: ''
+
+    },
+   
+    {
+      title: 'Editar Perfil',
+      url: '/clientes-update',
+      icon: ''
+
+    },
+    {
+      title: 'chat',
+      url: '/chat',
+      icon: 'create'
 
     },
 

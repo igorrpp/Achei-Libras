@@ -5,7 +5,7 @@
         <ion-list id="inbox-list">
           <img class="logo" src="assets/img/logo2.png" width="320px" height="250px" />
           <ion-list-header>Achei Libras</ion-list-header>
-          <ion-note>Comonique-se com o mundo</ion-note>
+          <ion-note>Comunique-se com o mundo</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
