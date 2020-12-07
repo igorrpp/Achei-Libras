@@ -24,25 +24,19 @@ export class AppComponent implements OnInit {
       icon: 'add-circle'
 
     },*/
-    {
+   /* {
       title: ' recuperar-senha',
       url: '/recuperar-senha',
       icon: ''
 
     },
-   
-    {
-      title: 'Editar Perfil',
-      url: '/clientes-update',
-      icon: ''
-
-    },
-    {
+    */  
+    /*{
       title: 'chat',
       url: '/chat',
       icon: 'create'
 
-    },
+    },*/
 
     {
       title: 'Maps',
@@ -109,6 +103,14 @@ export class AppComponent implements OnInit {
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    }
+  }
+
+  toggleTheme(event){
+    if(event.detail.checked){
+      document.body.setAttribute('color-theme','dark');
+    } else {
+      document.body.setAttribute('color-theme','light');
     }
   }
 }

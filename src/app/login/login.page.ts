@@ -79,7 +79,7 @@ export class LoginPage implements OnInit {
 
 
   redirecionar() {
-    this.navCtrl.navigateRoot(['cadastrar-cliente']);
+    this.navCtrl.navigateRoot(['recuperar-senha']);
 
   }
   redirecionar2() {

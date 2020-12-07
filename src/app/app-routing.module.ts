@@ -84,37 +84,31 @@ const routes: Routes = [
   },
   {
     path: 'interpretes-detalhe/:id',
-    loadChildren: () => import('./interpretes-detalhe/interpretes-detalhe.module').then( m => m.InterpretesDetalhePageModule)
+    loadChildren: () => import('./interpretes-detalhe/interpretes-detalhe.module').then(m => m.InterpretesDetalhePageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'clientes',
-    loadChildren: () => import('./clientes/clientes.module').then( m => m.ClientesPageModule)
+    loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesPageModule)
   },
   {
     path: 'clientes-detalhe/:id',
-    loadChildren: () => import('./clientes-detalhe/clientes-detalhe.module').then( m => m.ClientesDetalhePageModule)
+    loadChildren: () => import('./clientes-detalhe/clientes-detalhe.module').then(m => m.ClientesDetalhePageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-    , canActivate: [AngularFireAuthGuard],
-    data: { àuthGuardPipe: redirectToLogin }
-  },
-  {
-    path: 'clientes-update',
-    loadChildren: () => import('./clientes-update/clientes-update.module').then( m => m.ClientesUpdatePageModule)
+    loadChildren: () => import('./chat/chat.module').then(m => m.ChatPageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'recuperar-senha',
-    loadChildren: () => import('./recuperar-senha/recuperar-senha.module').then( m => m.RecuperarSenhaPageModule)
+    loadChildren: () => import('./recuperar-senha/recuperar-senha.module').then(m => m.RecuperarSenhaPageModule)
   },
-  
+
 
 ];
 
