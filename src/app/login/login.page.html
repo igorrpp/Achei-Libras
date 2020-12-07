@@ -20,14 +20,15 @@
       </ion-item>
 
       <ion-item>
-
+        <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
         <ion-icon class="senha" size="large" name="lock-closed"></ion-icon>
-        <ion-input class="fundo" type="password" placeholder="********" formControlName="password"></ion-input>
+        <ion-input class="fundo" [type]="showPassword ? 'text' : 'password'" placeholder="********" formControlName="password"></ion-input>
       </ion-item>
    
     </ion-list>
     
     <ion-item>
+      
       <ion-label id="esqueceuSenha" (click)="redirecionar()">Esqueceu a senha?</ion-label>
     </ion-item>
 

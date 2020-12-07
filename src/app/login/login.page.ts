@@ -18,7 +18,8 @@ import { Firebase } from '@ionic-native/firebase';
 export class LoginPage implements OnInit {
   formGroup: FormGroup;
   interprete: Interprete = new Interprete();
-
+  showPassword = false;
+  passwordToggleIcon = 'eye';
  
  
 
@@ -92,5 +93,9 @@ export class LoginPage implements OnInit {
       username: ['billy@ig.com', [Validators.email]],
       password: ['110801', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]]
     })
+  }
+
+  togglePassword():void {
+    this.showPassword = !this.showPassword;
   }
 }
