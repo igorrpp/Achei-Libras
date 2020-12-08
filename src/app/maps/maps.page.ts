@@ -36,7 +36,7 @@ export class MapsPage implements OnInit {
       },
       {
         position: {lat:-22.899937, lng:-43.558070},
-        title: "Senac Campo Grande",
+        title: "Senac, Campo Grande",
         
       }
 

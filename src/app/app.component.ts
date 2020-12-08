@@ -13,31 +13,30 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
 
-  /*  {
-      title: 'itensVencidos',
-      url: '/itensvencidos',
-      icon: 'pricetag'
-    },
-    {
-      title: 'Novo Item',
-      url: '/itens-vencidos-novo',
-      icon: 'add-circle'
-
-    },*/
-   /* {
-      title: ' recuperar-senha',
-      url: '/recuperar-senha',
-      icon: ''
-
-    },
-    */  
+    /*  {
+        title: 'itensVencidos',
+        url: '/itensvencidos',
+        icon: 'pricetag'
+      },
+      {
+        title: 'Novo Item',
+        url: '/itens-vencidos-novo',
+        icon: 'add-circle'
+  
+      },*/
+    /* {
+       title: ' recuperar-senha',
+       url: '/recuperar-senha',
+       icon: ''
+ 
+     },
+     */
     /*{
       title: 'chat',
       url: '/chat',
       icon: 'create'
 
     },*/
-
     {
       title: 'Maps',
       url: '/maps',
@@ -50,8 +49,8 @@ export class AppComponent implements OnInit {
       icon: 'location'
     },
 
-    
-    
+
+
     // Opção para ficar no ap do interprete
     {
       title: 'interpretes',
@@ -106,11 +105,11 @@ export class AppComponent implements OnInit {
     }
   }
 
-  toggleTheme(event){
-    if(event.detail.checked){
-      document.body.setAttribute('color-theme','dark');
+  toggleTheme(event) {
+    if (event.detail.checked) {
+      document.body.setAttribute('color-theme', 'dark');
     } else {
-      document.body.setAttribute('color-theme','light');
+      document.body.setAttribute('color-theme', 'light');
     }
   }
 }
