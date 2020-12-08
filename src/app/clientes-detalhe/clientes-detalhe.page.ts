@@ -51,5 +51,9 @@ export class ClientesDetalhePage implements OnInit {
     this.navCtrl.navigateForward(['/chat/']);
   }
 
+  calendario(obj : Cliente){
+    this.navCtrl.navigateForward(['/calendario/']);
+  }
+
 
 }

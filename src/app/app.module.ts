@@ -20,6 +20,8 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { NgCalendarModule } from 'ionic2-calendar';
+import { CalModalPageModule } from './pages/cal-modal/cal-modal.module';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { FormBuilder, FormControl } from '@angular/forms';
     HttpClientModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    NgCalendarModule,
+    CalModalPageModule,
     
     
     
