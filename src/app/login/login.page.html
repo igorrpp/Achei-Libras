@@ -23,7 +23,7 @@
       
       <ion-item color="light">
 
-        <ion-icon slot="end" size="small" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+        <ion-icon id="viewPassword" slot="end" size="small" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
         <ion-icon class="user" size="large" name="lock-closed"></ion-icon>
         <ion-input class="fundo2" [type]="showPassword ? 'text' : 'password'" placeholder="********"
           formControlName="password"></ion-input>

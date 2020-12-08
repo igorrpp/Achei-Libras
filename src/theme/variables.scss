@@ -154,11 +154,11 @@
   --ion-color-danger-tint: #f25454;
 
   /** dark **/
-  --ion-color-dark: #white;
+  --ion-color-dark: #222428;
   --ion-color-dark-rgb: 34, 34, 34;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
-  --ion-color-dark-shade: #white;
+  --ion-color-dark-shade: #1e2023;
   --ion-color-dark-tint: #383a3e;
 
   /** medium **/
@@ -168,15 +168,14 @@
   --ion-color-medium-contrast-rgb: 255, 255, 255;
   --ion-color-medium-shade: #86888f;
   --ion-color-medium-tint: #a2a4ab;
-
-  /** light **/
-  --ion-color-light: #ffffff00;
+  
+/** Light dark **/
+  --ion-color-light: #ffffff;
   --ion-color-light-rgb: 244, 244, 244;
-  --ion-color-light-contrast: #f4f5f8;
+  --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #08daff62;
-  --ion-color-light-tint: #f5f6f9;
-
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #0531b4;
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -212,7 +211,7 @@
   .senha {
     height: 30px;
 
-    color: rgba(0, 225, 255, 0.719);
+    color: rgba(2, 66, 139, 0.719);
   }
   // Recuperar Senha
   #esqueceuSenha {

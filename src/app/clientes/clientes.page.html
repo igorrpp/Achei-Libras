@@ -6,16 +6,16 @@
     <ion-title>Clientes</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-input placeholder="Type to search..." (ionChange)="onChange($event)"></ion-input>
-  <!--<ion-searchbar (ionChange)="onChange($event)" placeholder=" Procurar" color="light"></ion-searchbar>
-  -->
+
+    <ion-searchbar (ionChange)="onChange($event)" placeholder=" Procurar" color="light"></ion-searchbar>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-list-header lines="inset">
-      <ion-label class="iColor">Mais recentesS</ion-label>
+      <ion-label class="iColor">Mais recentes</ion-label>
 
       <ion-button (click)="ionViewWillEnter()">
         <ion-icon slot="start" name="refresh"></ion-icon>
@@ -23,7 +23,7 @@
 
 
     </ion-list-header>
-    <ion-item lines="none" *ngFor="let i of clientes" >
+    <ion-item lines="none" *ngFor="let i of clientes">
 
       <ion-avatar id="img" slot="start">
         <img id="img" [src]="imagem" *ngIf="imagem">
