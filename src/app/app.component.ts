@@ -37,6 +37,15 @@ export class AppComponent implements OnInit {
       icon: 'create'
 
     },*/
+<<<<<<< Updated upstream
+=======
+    {
+      title: 'perfil' ,
+      url: '/interpretes-perfil',
+      icon: ''
+
+    },
+>>>>>>> Stashed changes
     {
       title: 'Maps',
       url: '/maps',

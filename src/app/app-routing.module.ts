@@ -116,10 +116,27 @@ const routes: Routes = [
     path: 'calendario',
     loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
   },
+  {
+    path: 'interpretes-perfil',
+    loadChildren: () => import('./interpretes-perfil/interpretes-perfil.module').then( m => m.InterpretesPerfilPageModule)
+  },
+  
+  {
+    path: 'interpretes-perfil-detalhe/:id',
+    loadChildren: () => import('./interpretes-perfil-detalhe/interpretes-perfil-detalhe.module').then( m => m.InterpretesPerfilDetalhePageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
+  },
 
 
 ];
 
+<<<<<<< Updated upstream
+
+];
+
+=======
+>>>>>>> Stashed changes
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
