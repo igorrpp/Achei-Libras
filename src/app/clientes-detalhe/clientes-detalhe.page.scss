@@ -1,28 +1,32 @@
-.borda {
+.borda{
     border-color: black;
     border-left-style: double;
+    
+    
 }
 
-ion-list {
+ion-list{
+    
     /**font-weight: bold;**/
     border-style: solid;
-    border-color: #212e6ffe;
+    border-color: #212E6FFE;
     margin-bottom: 2px;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
 }
 
-#id {
+#id{
     margin-bottom: 2px;
 }
 
 section {
     text-align: center;
     align-items: center;
+    
 }
 
-#endereco {
+#endereco{
     background-color: blue;
     color: white;
     border-collapse: 506px;
@@ -31,24 +35,23 @@ section {
     left: 2px;
 }
 
-ion-label {
+ion-label{
     font-weight: bold;
 }
 
-#contato {
+#contato{
     font-size: 20px;
-    color:black;
+    color: darkblue;
 }
 
-.buttonsContact {
+.buttonsContact{
     border-style: solid;
-    border-color: rgba(200, 242, 248, 0.781);
-    
+    border-color: #212E6FFE;
     margin-bottom: 2px;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
 }
-ion-content {
+ion-content{
     background-color: rgb(215, 255, 255);
 }

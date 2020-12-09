@@ -6,44 +6,42 @@
     <ion-title>Clientes</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-
-    <ion-searchbar (ionChange)="onChange($event)" placeholder=" Procurar" color="light"></ion-searchbar>
-
+    <ion-searchbar placeholder=" Procurar" color="light"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header lines="inset">
-      <ion-label class="iColor">Mais recentes</ion-label>
-
-      <ion-button (click)="ionViewWillEnter()">
-        <ion-icon slot="start" name="refresh"></ion-icon>
-      </ion-button>
-
-
-    </ion-list-header>
-    <ion-item lines="none" *ngFor="let i of clientes">
-
-      <ion-avatar id="img" slot="start">
-        <img id="img" [src]="imagem" *ngIf="imagem">
-      </ion-avatar>
-
-      <ion-label (click)="detalhe(i)">
-
-        <h2>{{i.nome}}</h2>
-        <h4>Endereço: {{i.endereco}}</h4>
-        <h5>Deficiência: {{i.deficiencia}}</h5>
-        <p id="email">E-MAIL: {{i.username}}</p>
-
-
-
-
-      </ion-label>
-    </ion-item>
+<ion-list>
+<ion-list-header lines="inset">
+  <ion-label class="iColor">Mais recentes </ion-label>
+  
+  <ion-button (click)="ionViewWillEnter()" ><ion-icon slot="start" name="refresh" ></ion-icon></ion-button>
+  
+  
+</ion-list-header>
+<ion-item lines="none" *ngFor="let i of clientes" color="">
+  
+  <ion-avatar id="img"slot="start">
+    <img id="img" [src]="imagem" *ngIf="imagem">
+  </ion-avatar>
+  
+  <ion-label (click)="detalhe(i)">
+    
+    <h2>{{i.nome}}</h2>
+    <h4>Endereço: {{i.endereco}}</h4>
+    <h5>Deficiência: {{i.deficiencia}}</h5>
+    <p>E-MAIL: {{i.username}}</p>
+  
+   
+    
+    
+  </ion-label>
+</ion-item>
 
 
-  </ion-list>
+</ion-list>
+
 
 
 </ion-content>
+

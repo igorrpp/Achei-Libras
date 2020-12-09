@@ -13,52 +13,38 @@ import { TemplateService } from '../services/template.service';
 })
 export class ClientesPage implements OnInit {
 
-  imagem: any = null;
+   imagem: any = null;
   clientes: Cliente[] = [];
   cliente: Cliente = new Cliente();
 
   constructor(
-    private clienteServ: ClienteService,
+    private clienteServ : ClienteService,
     private template: TemplateService,
     private navCtrl: NavController,
-    private fireStorage: AngularFireStorage,) {
-
-  }
+    private fireStorage: AngularFireStorage,) { }
 
   ngOnInit() {
     this.downloadImage();
-
   }
-
 
   ionViewWillEnter() {
     this.clientes = [];
     this.template.loading.then(load => {
       load.present();
-
-      this.clienteServ.listar().subscribe(data => {
-
-        data.map(i => {
-          let cliente: Cliente = i.payload.doc.data() as Cliente;
+      
+     this.clienteServ.listar().subscribe(data => {
+       
+        data.map(i =>{
+          let cliente : Cliente = i.payload.doc.data() as Cliente;
           cliente.id = i.payload.doc.id as string;
           this.clientes.push(cliente);
-      
         })
-   
-
-
         load.dismiss();
-
- 
+        console.log(this.cliente);
       })
     })
 
   };
-
-  
-
-
- 
 
   downloadImage() {
     let ref = this.fireStorage.storage.ref().child(`Cadastros_de_clientes/${this.cliente.id}.jpg`)
@@ -67,14 +53,8 @@ export class ClientesPage implements OnInit {
     }, err => {
       this.imagem = 'assets/img/user.png';
     })
-
-
   }
-  detalhe(obj: Cliente) {
-    this.navCtrl.navigateForward(['/clientes-detalhe/', obj.id]);
-
-  }
-
-
-
+detalhe(obj : Cliente){
+  this.navCtrl.navigateForward(['/clientes-detalhe/', obj.id]);
+}
 }

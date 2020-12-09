@@ -1,8 +1,13 @@
-.person-circle-outline {
+.person-circle-outline{
+   
     color: rgb(0, 225, 255);
+
 }
 
-#img {
+.ock-closed{
+    color: rgb(0, 26, 255);
+}
+#img{
     width: auto;
     height: 30px;
     overflow: hidden;
@@ -10,41 +15,42 @@
     padding-left: 6px;
 }
 
-.logo {
+.logo{
+   
     image-rendering: auto;
 }
 
-.user {
-    height: 40px;
-    width: 100px;
+.user, .senha{
+   
+    height: 30px;
+      
     color: rgba(3, 45, 100, 0.74);
-    background-color: white;
-}
-.fundo {
-    background-color: white;
-    color: black;
-    width: 9000px;
 }
 
-.fundo2 {
+.fundo{
     background-color: white;
     color: black;
 }
-
-#slogan {
+#slogan{
+  
     text-align: center;
     text-size-adjust: 40px;
 }
---ion-item-background {
+--ion-item-background{
     background-color: yellow;
     color: yellow;
 }
-
-#esqueceuSenha {
-    text-align: center;
-   align-content: 40px;
-    height: 30px;
+ion-content{
+    background-color: rgb(215, 255, 255);
 }
 
-    
+.buttonLogin{
+    background-color: yellow;
+    color: blue;
+}
+
+#esqueceuSenha{
+    text-align: right;
+    text-size-adjust: 40px;
+}
 

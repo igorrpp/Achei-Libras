@@ -1,15 +1,18 @@
 
 
 ion-item {
-    border-top: 3px solid rgba(200, 242, 248, 0.781);
-    
-    
+    border-style: solid;
+    border-color: #212E6FFE;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    --ion-toolbar-background: green;
    
 }
 
 ion-content{
     background-color: rgb(215, 255, 255);
-   
 }
 h2,p{
     
