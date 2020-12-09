@@ -1,14 +1,11 @@
 
 
-ion-item {
-    border-style: solid;
-    border-color: #212E6FFE;
-    margin-bottom: 2px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border-radius: 10px;
-    --ion-toolbar-background: green;
-   
+
+#item{
+    
+  border-bottom: solid;
+  border-color: rgba(0, 3, 32, 0.11);
+  
 }
 
 ion-content{
@@ -19,4 +16,7 @@ h2,p{
     font-weight: bold;
 }
 
+#emailColor{
+    color: rgb(78, 76, 76);
+}
 

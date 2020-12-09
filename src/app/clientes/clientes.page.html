@@ -19,7 +19,7 @@
   
   
 </ion-list-header>
-<ion-item lines="none" *ngFor="let i of clientes" color="">
+<ion-item id="item" lines="none" *ngFor="let i of clientes" >
   
   <ion-avatar id="img"slot="start">
     <img id="img" [src]="imagem" *ngIf="imagem">
@@ -30,7 +30,7 @@
     <h2>{{i.nome}}</h2>
     <h4>Endereço: {{i.endereco}}</h4>
     <h5>Deficiência: {{i.deficiencia}}</h5>
-    <p>E-MAIL: {{i.username}}</p>
+    <p id="emailColor">E-MAIL: {{i.username}}</p>
   
    
     

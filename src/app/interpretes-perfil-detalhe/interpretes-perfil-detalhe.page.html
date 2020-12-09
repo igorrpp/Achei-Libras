@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>interpretes-perfil-detalhe</ion-title>
+    <ion-title>Interpretes-detalhe</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,52 +11,57 @@
 <ion-content>
   <ion-card>
     <img [src]="imagem" *ngIf="imagem" />
+
   </ion-card>
-  <!--<IMG [src]="imagem" *ngIf="imagem" (click)="presentActionSheet()" width="50%" height="50%">
-  -->
-    <ion-button expand="block" (click)="foto()" color="success">
-      <ion-icon name="camera-outline"></ion-icon>
-    </ion-button>
-<form>
-  <ion-item>
-    <ion-label position="floating">Grupo</ion-label>
-    <ion-input type="text" value="{{interprete.grupo}}" disabled="true"></ion-input>
-  </ion-item>
-   
-<ion-item>
-  <ion-label position="floating">Nome</ion-label>
-  <ion-input type="text" value="{{interprete.nome}}" disabled="true"></ion-input>
-</ion-item>
 
-<ion-item>
-  <ion-label position="floating">E-mail</ion-label>
-  <ion-input type="text" value="{{interprete.username}}" disabled="true"></ion-input>
-  
-</ion-item>
+  <ion-button expand="block" (click)="foto()" color="success">
+    <ion-icon name="camera-outline"></ion-icon>
+  </ion-button>
 
-<ion-item>
-  <ion-label position="floating">Endereço</ion-label>
-  <ion-input type="text" value="{{interprete.endereco}}" disabled="true"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label position="floating">CPF</ion-label>
-  <ion-input type="text" value="{{interprete.cpf}}" disabled="true"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label position="floating">CEP</ion-label>
-  <ion-input type="text" value="{{interprete.cep}}" disabled="true"></ion-input>
-</ion-item>
+  <form>
+    <ion-card>
+      <ion-badge color="success">Online</ion-badge>
 
 
 
-<ion-button expand="block" (click)="excluir(interprete)" color="danger">
-  <ion-icon name="trash-outline"></ion-icon>
-</ion-button>
-<ion-button expand="block" (click)="atualizar(interprete)" color="primary">
-  <ion-icon name="clipboard-outline"></ion-icon>
-</ion-button>
+      <ion-item>
+        <ion-label>CEP: </ion-label>
+        <ion-input readonly="readonly"> {{interprete.cep}} </ion-input>
+      </ion-item>
 
-</form>
+      <ion-item>
+        <ion-label>NOME: </ion-label>
+        <ion-input readonly="readonly"> {{interprete.nome}} </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label id="email">E-MAIL:</ion-label>
+        <ion-input readonly="readonly"> {{interprete.username}} </ion-input>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-label>ENDEREÇO:</ion-label>
+        <ion-input readonly="readonly"> {{interprete.endereco}} </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Atendimento:</ion-label>
+        <ion-input readonly="readonly"> {{interprete.atendimento}} </ion-input>
+      </ion-item>
+
+
+    </ion-card>
+
+  </form>
+
+  <ion-button expand="block" (click)="excluir(interprete)" color="danger">
+    <ion-icon name="trash-outline"></ion-icon>
+  </ion-button>
+
+  <ion-button expand="block" (click)="atualizar(interprete)" color="primary">
+    <ion-icon name="clipboard-outline"></ion-icon>
+  </ion-button>
+
 </ion-content>

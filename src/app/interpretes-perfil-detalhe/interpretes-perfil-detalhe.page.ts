@@ -17,6 +17,7 @@ export class InterpretesPerfilDetalhePage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private interpreteServ: InterpreteService,
+    private fireStorage: AngularFireStorage,
 
 
   ) { }
@@ -31,8 +32,17 @@ export class InterpretesPerfilDetalhePage implements OnInit {
         console.log(this.interprete);
       })
     })
+    this.downloadImage()
 
   }
-
+  downloadImage() {
+    let ref = this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${this.interprete.id}.jpg`)
+    ref.getDownloadURL().then(url => {
+      this.imagem = url;
+    }, err => {
+      this.imagem =
+       'assets/img/user.png';
+    })
+  }
 
 }
