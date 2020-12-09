@@ -5,9 +5,11 @@
     </ion-buttons>
     <ion-title>Clientes</ion-title>
   </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar placeholder=" Procurar" color="light"></ion-searchbar>
-  </ion-toolbar>
+  <form>
+    <ion-searchbar #nome></ion-searchbar>
+  </form>
+  <ion-button (click)="pesquisar()">Pesquisar</ion-button>
+
 </ion-header>
 
 <ion-content>
