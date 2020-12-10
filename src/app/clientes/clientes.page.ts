@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { NavController } from '@ionic/angular';
 import { Cliente } from '../model/cliente';
@@ -12,10 +12,12 @@ import { TemplateService } from '../services/template.service';
   styleUrls: ['./clientes.page.scss'],
 })
 export class ClientesPage implements OnInit {
+  @ViewChild("nome") nome; 
 
    imagem: any = null;
   clientes: Cliente[] = [];
   cliente: Cliente = new Cliente();
+  lista : Cliente[] = [];
 
   constructor(
     private clienteServ : ClienteService,
@@ -57,4 +59,13 @@ export class ClientesPage implements OnInit {
 detalhe(obj : Cliente){
   this.navCtrl.navigateForward(['/clientes-detalhe/', obj.id]);
 }
+
+pesquisar(){
+  console.log("Busca por: "+this.nome.value)
+  this.clienteServ.buscaPorNome(this.nome.value).subscribe(response=>{
+    this.lista = [];
+    this.lista = response;
+  });
+}
+
 }

@@ -8,6 +8,16 @@ export class Cliente{
     username: string;
     deficiência: string;
 
+    setData(objFirebase : any){
+        this.cep = objFirebase.cep;
+        this.cpf = objFirebase.cpf;
+        this.nome = objFirebase.nome;
+        this.endereco = objFirebase.endereco;
+        this.grupo = objFirebase.grupo;
+        this.username = objFirebase.username;
+        this.deficiência = objFirebase.deficiência;
+    }
+
 }
 
 
