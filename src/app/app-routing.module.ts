@@ -26,10 +26,14 @@ const routes: Routes = [
   {
     path: 'maps',
     loadChildren: () => import('./maps/maps.module').then(m => m.MapsPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'maps-geolocation',
     loadChildren: () => import('./maps-geolocation/maps-geolocation.module').then(m => m.MapsGeolocationPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'itensvencidos',
@@ -91,6 +95,8 @@ const routes: Routes = [
   {
     path: 'clientes',
     loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'clientes-detalhe/:id',
@@ -111,14 +117,20 @@ const routes: Routes = [
   {
     path: 'cal-modal',
     loadChildren: () => import('./pages/cal-modal/cal-modal.module').then( m => m.CalModalPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'calendario',
     loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'interpretes-perfil',
     loadChildren: () => import('./interpretes-perfil/interpretes-perfil.module').then( m => m.InterpretesPerfilPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
   },
   
   {
@@ -127,6 +139,13 @@ const routes: Routes = [
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
+  {
+    path: 'interpretes-update/:id',
+    loadChildren: () => import('./interpretes-update/interpretes-update.module').then( m => m.InterpretesUpdatePageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin }
+  },
+
 
 
 ];

@@ -48,7 +48,7 @@ export class RecuperarSenhaPage implements OnInit {
         this.template.myAlert("Enviado com sucesso!");
       }).catch(function (error) {
         load.dismiss();
-        this.template.myAlert("Usuário ou senha inválidos");
+        this.template.myAlert("Falha ao enviar! Por favor, tente novamente.");
 
       });
     })

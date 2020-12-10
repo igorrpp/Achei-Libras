@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import * as firebase from 'firebase';
 import { Interprete } from '../model/interprete';
 import { InterpreteService } from '../services/interprete.service';
 
@@ -18,6 +20,7 @@ export class InterpretesPerfilDetalhePage implements OnInit {
     private route: ActivatedRoute,
     private interpreteServ: InterpreteService,
     private fireStorage: AngularFireStorage,
+    private navCtrl: NavController,
 
 
   ) { }
@@ -44,5 +47,11 @@ export class InterpretesPerfilDetalhePage implements OnInit {
        'assets/img/user.png';
     })
   }
+
+  atualizar(uid) {
+     uid = firebase.auth().currentUser.uid;
+    this.navCtrl.navigateForward(['/interpretes-update', uid]);
+  }
+
 
 }
