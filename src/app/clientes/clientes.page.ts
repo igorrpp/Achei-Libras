@@ -63,8 +63,10 @@ detalhe(obj : Cliente){
 pesquisar(){
   console.log("Busca por: "+this.nome.value)
   this.clienteServ.buscaPorNome(this.nome.value).subscribe(response=>{
-    this.lista = [];
-    this.lista = response;
+    this.clientes = [];
+    this.clientes = response;
+    
+    
   });
 }
 

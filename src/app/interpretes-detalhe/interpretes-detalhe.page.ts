@@ -38,7 +38,7 @@ export class InterpretesDetalhePage implements OnInit {
   }
 
 downloadImage() {
-    let ref = this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${this.interprete.id}.jpg`)
+    let ref = this.fireStorage.storage.ref().child(`/interpretes-foto/${this.interprete.id}.jpg`)
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     }, err => {

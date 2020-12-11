@@ -8,6 +8,7 @@ import { UtilService } from './ultil.service';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { File } from '@ionic-native/file/ngx';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root',
@@ -40,7 +41,7 @@ export class InterpreteService {
       (this.collection).doc(id).snapshotChanges();
   }
 
-  
+
   atualizar(id: string, dados: any): Observable<any> {
     const observable =
       from(this.firestore.collection('Cadastros_de_interpretes').doc(id).set(dados));
@@ -51,6 +52,15 @@ export class InterpreteService {
     const observable =
       from(this.firestore.collection('Cadastros_de_interpretes').doc(`${id}`).delete());
     return observable;
+  }
+
+  excluir2(id: string): Observable<any> {
+    
+    const observable =
+      from(this.firestore.collection('Cadastros_de_interpretes').doc(`${id}`).delete());
+    return observable;
+
+
   }
 
 
@@ -101,7 +111,7 @@ export class InterpreteService {
 
     let fotoBlob = this.util.dataUriToBlob(this.fotoBlob);
     let observable = from(
-      this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${nome}.jpg`).put(fotoBlob));
+      this.fireStorage.storage.ref().child(`/interpretes-foto/${nome}.jpg`).put(fotoBlob));
     return observable;
   }
 

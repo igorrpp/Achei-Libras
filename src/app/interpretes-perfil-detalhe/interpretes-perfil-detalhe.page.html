@@ -10,7 +10,7 @@
 
 <ion-content>
   <ion-card>
-    <img [src]="imagem" *ngIf="imagem" />
+    <img [src]="imagem" *ngIf="imagem" (click)="foto()" />
 
   </ion-card>
 
@@ -27,6 +27,11 @@
       <ion-item>
         <ion-label>CEP: </ion-label>
         <ion-input readonly="readonly"> {{interprete.cep}} </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>CPF: </ion-label>
+        <ion-input readonly="readonly"> {{interprete.cpf}} </ion-input>
       </ion-item>
 
       <ion-item>
@@ -51,7 +56,7 @@
 
   </form>
 
-  <ion-button expand="block" (click)="excluir(interprete)" color="danger">
+  <ion-button expand="block" (click)="excluir2()" color="danger">
     <ion-icon name="trash-outline"></ion-icon>
   </ion-button>
 

@@ -40,19 +40,23 @@ export class InterpretesPage implements OnInit {
         })
         load.dismiss();
         console.log(this.interpretes);
+        this.downloadImage();
       })
     })
 
   };
-
+  
   downloadImage() {
-    let ref = this.fireStorage.storage.ref().child(`Cadastros_de_interpretes/${this.interprete.id}.jpg`)
+    let ref = this.fireStorage.storage.ref().child(`/interpretes-perfil-detalhe/${this.interprete.id}.jpg`)
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     }, err => {
-      this.imagem = 'assets/img/user.png';
+      this.imagem =
+       'assets/img/user.png';
     })
   }
+
+
 detalhe(obj : Interprete){
   this.navCtrl.navigateForward(['/interpretes-detalhe/', obj.id]);
 }

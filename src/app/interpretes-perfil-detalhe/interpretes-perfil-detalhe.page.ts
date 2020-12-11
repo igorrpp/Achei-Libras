@@ -39,19 +39,41 @@ export class InterpretesPerfilDetalhePage implements OnInit {
 
   }
   downloadImage() {
-    let ref = this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${this.interprete.id}.jpg`)
+    // código para receber o id do usuário logado
+    let uid = firebase.auth().currentUser.uid;
+    let ref = this.fireStorage.storage.ref().child(`/interpretes-foto/${uid}.jpg`)
     ref.getDownloadURL().then(url => {
       this.imagem = url;
+
+
     }, err => {
       this.imagem =
-       'assets/img/user.png';
+        'assets/img/user.png';
     })
   }
 
   atualizar(uid) {
-     uid = firebase.auth().currentUser.uid;
+    uid = firebase.auth().currentUser.uid;
     this.navCtrl.navigateForward(['/interpretes-update', uid]);
   }
 
+  foto() {
+    this.navCtrl.navigateForward(['/interpretes-perfil-foto', this.interprete.id]);
+  }
 
+  /* função para excluir "Perfil do usuário" tanto no Auth quando na colleção
+  excluir2(id: string) {
+
+    var user = firebase.auth().currentUser;
+
+    user.delete().then(function () {
+      this.interpreteServ.excluir(this.interprete.id).subscribe(data => {
+        this.navCtrl.navigateRoot('login');
+      })
+    }).catch(function (error) {
+      console.log(`Erro ao cadastrar ${error}`);
+
+    });
+  }
+*/
 }

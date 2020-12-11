@@ -145,6 +145,13 @@ const routes: Routes = [
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
+  {
+    path: 'interpretes-perfil-foto/:id',
+    loadChildren: () => import('./interpretes-perfil-foto/interpretes-perfil-foto.module').then( m => m.InterpretesPerfilFotoPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin } 
+  },
+
 
 
 
