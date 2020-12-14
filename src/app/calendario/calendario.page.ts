@@ -44,6 +44,7 @@ export class CalendarioPage implements OnInit {
     this.viewTitle = title;
   }
 
+  // OPEN MODAL
   async openCalModal() {
     const modal = await this.modalCtrl.create({
       component: CalModalPage,
@@ -78,6 +79,7 @@ export class CalendarioPage implements OnInit {
       }
     });
   }
+  /// fim OPEN CALL
  
   // Calendar event was clicked
   async onEventSelected(event) {

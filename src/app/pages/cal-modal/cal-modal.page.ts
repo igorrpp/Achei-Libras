@@ -23,7 +23,10 @@ export class CalModalPage implements AfterViewInit {
   };
  
   modalReady = false;
- 
+
+  // 1. Model para Calendario
+  // 2. Calendario Service
+  // 3. Injetar o CalendarioService
   constructor(private modalCtrl: ModalController) { }
  
   ngAfterViewInit() {
@@ -32,7 +35,11 @@ export class CalModalPage implements AfterViewInit {
     }, 0);
   }
  
-  save() {    
+  save() {
+    // Realizar o cadastro
+    console.log(this.event.title);
+    console.log(this.event.startTime);
+    console.log(this.event.desc);
     this.modalCtrl.dismiss({event: this.event})
   }
  
