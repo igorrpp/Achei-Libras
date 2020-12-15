@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Interprete } from '../model/interprete';
 import { InterpreteService } from '../services/interprete.service';
 import { TemplateService } from '../services/template.service';
@@ -19,9 +21,10 @@ export class InterpretesUpdatePage implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private InterpreteServ: InterpreteService,
     private template: TemplateService,
-
     private route: ActivatedRoute,
-    private firestore: AngularFirestore) {
+    private navCtrl: NavController,
+    private fb: FirebaseApp,
+   ) {
     this.iniciarForm();
   }
 
@@ -55,6 +58,10 @@ export class InterpretesUpdatePage implements OnInit {
       console.log(data);
       this.template.loading;
       this.template.myAlert('Atualizado com sucesso');
+
+      var user = this.fb.auth().currentUser.uid;
+      this.navCtrl.navigateForward(['/interpretes-perfil-detalhe/', user]);
+  
 
 
     })

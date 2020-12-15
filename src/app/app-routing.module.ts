@@ -151,6 +151,24 @@ const routes: Routes = [
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin } 
   },
+  {
+    path: 'clientes-perfil',
+    loadChildren: () => import('./clientes-perfil/clientes-perfil.module').then( m => m.ClientesPerfilPageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin } 
+  },
+  {
+    path: 'clientes-perfil-detalhe/:id',
+    loadChildren: () => import('./clientes-perfil-detalhe/clientes-perfil-detalhe.module').then( m => m.ClientesPerfilDetalhePageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin } 
+  },
+  {
+    path: 'clientes-update/:id',
+    loadChildren: () => import('./clientes-update/clientes-update.module').then( m => m.ClientesUpdatePageModule)
+    , canActivate: [AngularFireAuthGuard],
+    data: { àuthGuardPipe: redirectToLogin } 
+  },
 
 
 

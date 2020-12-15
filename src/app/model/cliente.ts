@@ -6,7 +6,7 @@ export class Cliente{
     endereco: string;
     grupo: string;
     username: string;
-    deficiência: string;
+    deficiencia: string;
 
     setData(objFirebase : any){
         this.cep = objFirebase.cep;
@@ -15,7 +15,7 @@ export class Cliente{
         this.endereco = objFirebase.endereco;
         this.grupo = objFirebase.grupo;
         this.username = objFirebase.username;
-        this.deficiência = objFirebase.deficiência;
+        this.deficiencia = objFirebase.deficiência;
     }
 
 }

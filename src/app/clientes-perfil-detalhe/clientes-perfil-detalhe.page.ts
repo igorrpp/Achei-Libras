@@ -3,22 +3,24 @@ import { FirebaseApp } from '@angular/fire';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { Interprete } from '../model/interprete';
-import { InterpreteService } from '../services/interprete.service';
+import { Cliente } from '../model/cliente';
+import { ClienteService } from '../services/cliente.service';
+
 
 @Component({
-  selector: 'app-interpretes-perfil-detalhe',
-  templateUrl: './interpretes-perfil-detalhe.page.html',
-  styleUrls: ['./interpretes-perfil-detalhe.page.scss'],
+  selector: 'app-clientes-perfil-detalhe',
+  templateUrl: './clientes-perfil-detalhe.page.html',
+  styleUrls: ['./clientes-perfil-detalhe.page.scss'],
 })
-export class InterpretesPerfilDetalhePage implements OnInit {
+export class ClientesPerfilDetalhePage implements OnInit {
+
   id: any = '';
   imagem: any = null;
-  interprete: Interprete = new Interprete();
+  cliente: Cliente = new Cliente();
 
   constructor(
     private route: ActivatedRoute,
-    private interpreteServ: InterpreteService,
+    private clienteServ : ClienteService,
     private fireStorage: AngularFireStorage,
     private navCtrl: NavController,
     private fb: FirebaseApp,
@@ -30,10 +32,10 @@ export class InterpretesPerfilDetalhePage implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(url => {
       let id = url.get('id');
-      this.interpreteServ.buscaPorId(id).subscribe(data => {
-        this.interprete = data.payload.data();
-        this.interprete.id = data.payload.id as string;
-        console.log(this.interprete);
+      this.clienteServ.buscaPorId(id).subscribe(data => {
+        this.cliente = data.payload.data();
+        this.cliente.id = data.payload.id as string;
+        console.log(this.cliente);
       })
     })
     this.downloadImage()
@@ -43,7 +45,7 @@ export class InterpretesPerfilDetalhePage implements OnInit {
     // código para receber o id do usuário logado
    
     var uid = this.fb.auth().currentUser.uid;
-    let ref = this.fireStorage.storage.ref().child(`/interpretes-foto/${uid}.jpg`)
+    let ref = this.fireStorage.storage.ref().child(`/clientes-foto/${uid}.jpg`)
     ref.getDownloadURL().then(url => {
       this.imagem = url;
 
@@ -56,11 +58,11 @@ export class InterpretesPerfilDetalhePage implements OnInit {
 
   atualizar(uid) {
     uid = this.fb.auth().currentUser.uid;
-    this.navCtrl.navigateForward(['/interpretes-update', uid]);
+    this.navCtrl.navigateForward(['/clientes-update', uid]);
   }
 
   foto() {
-    this.navCtrl.navigateForward(['/interpretes-perfil-foto', this.interprete.id]);
+    this.navCtrl.navigateForward(['/clientes-perfil-foto', this.cliente.id]);
   }
 
   /* função para excluir "Perfil do usuário" tanto no Auth quando na colleção

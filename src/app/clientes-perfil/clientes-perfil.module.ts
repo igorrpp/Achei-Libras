@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ClientesUpdatePageRoutingModule } from './clientes-update-routing.module';
+import { ClientesPerfilPageRoutingModule } from './clientes-perfil-routing.module';
 
-import { ClientesUpdatePage } from './clientes-update.page';
+import { ClientesPerfilPage } from './clientes-perfil.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClientesUpdatePageRoutingModule,
+    ClientesPerfilPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ClientesUpdatePage]
+  declarations: [ClientesPerfilPage]
 })
-export class ClientesUpdatePageModule {}
+export class ClientesPerfilPageModule {}

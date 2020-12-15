@@ -38,9 +38,15 @@ export class AppComponent implements OnInit {
 
     },*/
     {
-      title: 'perfil' ,
+      title: 'perfil do interprete' ,
       url: '/interpretes-perfil',
-      icon: ''
+      icon: 'save'
+
+    },
+    {
+      title: 'perfil do cliente' ,
+      url: '/clientes-perfil',
+      icon: 'save'
 
     },
 

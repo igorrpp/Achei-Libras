@@ -1,5 +1,7 @@
 
 import { Component, AfterViewInit } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
  
 @Component({
@@ -8,6 +10,9 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./cal-modal.page.scss'],
 })
 export class CalModalPage implements AfterViewInit {
+
+  message: string = null;
+
   calendar = {
     mode: 'month',
     currentDate: new Date()
@@ -23,8 +28,14 @@ export class CalModalPage implements AfterViewInit {
   };
  
   modalReady = false;
- 
-  constructor(private modalCtrl: ModalController) { }
+
+  // 1. Model para Calendario
+  // 2. Calendario Service
+  // 3. Injetar o CalendarioService
+  constructor(
+    private modalCtrl: ModalController,
+    private afs: AngularFirestore,
+    private fb: FirebaseApp) { }
  
   ngAfterViewInit() {
     setTimeout(() => {
@@ -32,7 +43,24 @@ export class CalModalPage implements AfterViewInit {
     }, 0);
   }
  
-  save() {    
+  save() {
+     // Realizar o cadastro
+     console.log(`Esse é o titulo ${this.event.title}`);
+     console.log(`Esse é o hora: ${this.event.startTime}`);
+     console.log(`Esse é o descrição: ${this.event.desc}`);
+ 
+     // variavel "user" para capturar dados do usuario logado, e depois para salvar dados na coleção
+ 
+    
+     var user = this.fb.auth().currentUser.uid;
+     this.afs.collection('calendario').doc(user).set(this.event).then(() => {
+ 
+       this.message = "Informações cadastradas com sucesso!";
+ 
+     }).catch(() => {
+       this.message = "Erro ao cadastrar as Informações!";
+     })
+ 
     this.modalCtrl.dismiss({event: this.event})
   }
  

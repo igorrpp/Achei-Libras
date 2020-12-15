@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Cliente } from '../model/cliente';
-import { User} from '../services/chat.service';
+import { User } from '../services/chat.service';
 import { ClienteService } from '../services/cliente.service';
 import { TemplateService } from '../services/template.service';
 
@@ -20,9 +22,11 @@ export class ClientesUpdatePage implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private ClienteServ: ClienteService,
     private template: TemplateService,
+    private navCtrl: NavController,
+    private fb: FirebaseApp,
 
     private route: ActivatedRoute,
-    private firestore: AngularFirestore) {
+  ) {
     this.iniciarForm();
   }
 
@@ -39,14 +43,14 @@ export class ClientesUpdatePage implements OnInit {
 
   iniciarForm() {
     this.formGroup = this.formBuilder.group({
-      username: ['', [Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
-      nome: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(32)]],
-      grupo: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
-      deficiencia: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
-      cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
-      cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      endereco: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+
+      username: [this.cliente.username, [Validators.email]],
+      nome: [this.cliente.nome, [Validators.required, Validators.minLength(13), Validators.maxLength(32)]],
+      grupo: [this.cliente.grupo, [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
+      deficiencia: [this.cliente.deficiencia, [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
+      cpf: [this.cliente.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      cep: [this.cliente.cep, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+      endereco: [this.cliente.endereco, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
 
     })
   }
@@ -57,8 +61,10 @@ export class ClientesUpdatePage implements OnInit {
       console.log(data);
       this.template.loading;
       this.template.myAlert('Atualizado com sucesso');
+      var user = this.fb.auth().currentUser.uid;
+    this.navCtrl.navigateForward(['/clientes-perfil-detalhe/', user]);
 
-      
+
     })
   }
 

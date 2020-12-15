@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>clientes-perefil-detalhe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <img [src]="imagem" *ngIf="imagem" (click)="foto()" />
+
+  </ion-card>
+
+  <ion-button expand="block" (click)="foto()" color="success">
+    <ion-icon name="camera-outline"></ion-icon>
+  </ion-button>
+
+  <form>
+    <ion-card>
+      <ion-badge color="success">Online</ion-badge>
+
+      <ion-item>
+        <ion-label>Deficiência: </ion-label>
+        <ion-input readonly="readonly"> {{cliente.deficiencia}} </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>CEP: </ion-label>
+        <ion-input readonly="readonly"> {{cliente.cep}} </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>CPF: </ion-label>
+        <ion-input readonly="readonly"> {{cliente.cpf}} </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>NOME: </ion-label>
+        <ion-input readonly="readonly"> {{cliente.nome}} </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label id="email">E-MAIL:</ion-label>
+        <ion-input readonly="readonly"> {{cliente.username}} </ion-input>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-label>ENDEREÇO:</ion-label>
+        <ion-input readonly="readonly"> {{cliente.endereco}} </ion-input>
+      </ion-item>
+
+
+      
+    </ion-card>
+
+  </form>
+  <ion-button expand="block" (click)="excluir2()" color="danger">
+    <ion-icon name="trash-outline"></ion-icon>
+  </ion-button>
+
+  <ion-button expand="block" (click)="atualizar(cliente)" color="primary">
+    <ion-icon name="clipboard-outline"></ion-icon>
+  </ion-button>
+
+
+</ion-content>
