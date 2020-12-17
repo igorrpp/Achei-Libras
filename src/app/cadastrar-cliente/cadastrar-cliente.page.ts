@@ -39,6 +39,7 @@ export class CadastrarClientePage implements OnInit {
       grupo: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
       deficiencia: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      telefone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       endereco: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
 
