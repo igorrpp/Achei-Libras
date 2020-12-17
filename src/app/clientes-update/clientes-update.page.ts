@@ -49,6 +49,7 @@ export class ClientesUpdatePage implements OnInit {
       grupo: [this.cliente.grupo, [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
       deficiencia: [this.cliente.deficiencia, [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
       cpf: [this.cliente.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      telefone: [this.cliente.telefone, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: [this.cliente.cep, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       endereco: [this.cliente.endereco, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
 

@@ -168,7 +168,11 @@ const routes: Routes = [
     loadChildren: () => import('./clientes-update/clientes-update.module').then( m => m.ClientesUpdatePageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin } 
+  },  {
+    path: 'sobre',
+    loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule)
   },
+
 
 
 

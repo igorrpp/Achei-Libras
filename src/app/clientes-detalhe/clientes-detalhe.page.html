@@ -40,6 +40,11 @@
         <ion-input readonly="readonly"> {{cliente.username}} </ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label id="telefone">TELEFONE:</ion-label>
+        <ion-input readonly="readonly"> {{cliente.telefone}} </ion-input>
+      </ion-item>
+
 
 
       <ion-item>
@@ -80,6 +85,10 @@
 
     <ion-button size="default" color="success" (click)="calendario()">
       <ion-icon name="calendar"></ion-icon>
+    </ion-button>
+
+    <ion-button href={{url}} size="default" color="success">
+      <ion-icon name="logo-whatsapp"></ion-icon>
     </ion-button>
 
   </section>

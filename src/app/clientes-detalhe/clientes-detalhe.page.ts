@@ -15,10 +15,15 @@ export class ClientesDetalhePage implements OnInit {
 
   imagem: any = null;
   cliente: Cliente = new Cliente();
-  
+  codigopais: string = "55";
+
+  //SUBSTITUIR ESTE Nº PELO Nº CADASTRADO NO ID
+  whatsappnumber: string = "21964375516";
+  url: string = "https://wa.me/" + this.codigopais + this.whatsappnumber + "?text=Olá, te encontrei no App Achei Libras";
+
   constructor(
     private route: ActivatedRoute,
-    private clienteServ : ClienteService,
+    private clienteServ: ClienteService,
     private navCtrl: NavController,
     private fireStorage: AngularFireStorage,
   ) { }
@@ -31,29 +36,30 @@ export class ClientesDetalhePage implements OnInit {
         this.cliente = data.payload.data();
         this.cliente.id = data.payload.id as string;
         console.log(this.cliente);
-       this.downloadImage();
+        this.downloadImage();
       })
     })
-    
+
   }
 
- downloadImage() {
+  downloadImage() {
     let ref = this.fireStorage.storage.ref().child(`/Cadastros_de_interpretes/${this.cliente.id}.jpg`)
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     }, err => {
       this.imagem =
-       'assets/img/user.png';
+        'assets/img/user.png';
     })
   }
 
-  chat(obj : Cliente){
+  chat(obj: Cliente) {
     this.navCtrl.navigateForward(['/chat/']);
   }
 
-  calendario(obj : Cliente){
+  calendario(obj: Cliente) {
     this.navCtrl.navigateForward(['/calendario/']);
   }
+
 
 
 }
