@@ -4,11 +4,11 @@ import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
+  //{
+  //  path: '',
+  //  redirectTo: 'login',
+  //  pathMatch: 'full'
+  //},
 
   {
     path: 'login',
@@ -168,9 +168,14 @@ const routes: Routes = [
     loadChildren: () => import('./clientes-update/clientes-update.module').then( m => m.ClientesUpdatePageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin } 
-  },  {
+  },
+  {
     path: 'sobre',
     loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   },
 
 
