@@ -3,6 +3,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
+import { Cliente } from '../model/cliente';
 import { Interprete } from '../model/interprete';
 import { InterpreteService } from '../services/interprete.service';
 
@@ -15,6 +16,12 @@ export class InterpretesDetalhePage implements OnInit {
 
   imagem: any = null;
   interprete: Interprete = new Interprete();
+  cliente: Cliente = new Cliente();
+  codigopais: string = "55";
+
+  //SUBSTITUIR ESTE Nº PELO Nº CADASTRADO NO ID
+  whatsappnumber: string = "";
+  mensagem: string = "?text=Olá, te encontrei no App Achei Libras";
   
   constructor(
     private route: ActivatedRoute,
@@ -47,5 +54,9 @@ downloadImage() {
     })
   }
 
+  zap(url) {
+    this.whatsappnumber = this.interprete.telefone;
+    return url = "https://wa.me/" + this.codigopais + this.whatsappnumber + this.mensagem;
+  }
 
 }

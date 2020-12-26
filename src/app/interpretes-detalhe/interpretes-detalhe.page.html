@@ -35,7 +35,10 @@
         <ion-input readonly="readonly"> {{interprete.username}} </ion-input>
       </ion-item>
 
-
+      <ion-item>
+        <ion-label id="telefone">TELEFONE:</ion-label>
+        <ion-input readonly="readonly"> {{interprete.telefone}} </ion-input>
+      </ion-item>
 
       <ion-item>
         <ion-label>ENDEREÇO:</ion-label>
@@ -77,6 +80,9 @@
       <ion-icon name="calendar"></ion-icon>
     </ion-button>
 
+    <ion-button href={{zap(url)}}  size="default" color="success">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </ion-button>
   </section>
 
 </ion-content>

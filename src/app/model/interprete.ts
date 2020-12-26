@@ -6,6 +6,7 @@ export class Interprete{
     endereco: string;
     grupo: string;
     username: string;
+    telefone: string;
    
 
 }
