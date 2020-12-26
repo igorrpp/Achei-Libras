@@ -18,8 +18,8 @@ export class ClientesDetalhePage implements OnInit {
   codigopais: string = "55";
 
   //SUBSTITUIR ESTE Nº PELO Nº CADASTRADO NO ID
-  whatsappnumber: string = "21964375516";
-  url: string = "https://wa.me/" + this.codigopais + this.whatsappnumber + "?text=Olá, te encontrei no App Achei Libras";
+  whatsappnumber: string = "";
+  mensagem: string = "?text=Olá, te encontrei no App Achei Libras";
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +50,10 @@ export class ClientesDetalhePage implements OnInit {
       this.imagem =
         'assets/img/user.png';
     })
+  }
+  zap(url) {
+    this.whatsappnumber = this.cliente.telefone;
+    return url = "https://wa.me/" + this.codigopais + this.whatsappnumber + this.mensagem;
   }
 
   chat(obj: Cliente) {

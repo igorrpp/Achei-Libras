@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 export class SplashPage implements OnInit {
 
   constructor(public router:Router) { 
-    setTimeout(()=>{
+   /* setTimeout(()=>{
       this.router.navigateByUrl('login');
     },3000);
+
+    */
   }
 
   ngOnInit() {

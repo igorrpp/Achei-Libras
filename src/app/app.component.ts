@@ -101,16 +101,16 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     public router: Router
   ) {
-    this.initializeApp();
+   /* this.initializeApp();*/
   }
-
+/*
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.router.navigateByUrl('splash');
     });
   }
-
+*/
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
