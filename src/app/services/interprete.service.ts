@@ -48,6 +48,12 @@ export class InterpreteService {
     return observable;
   }
 
+  atualizar2(id: string, status: any): Observable<any> {
+    const observable =
+      from(this.firestore.collection('Cadastros_de_interpretes').doc(id).set(status));
+    return observable;
+  }
+
   excluir(id: string): Observable<any> {
     const observable =
       from(this.firestore.collection('Cadastros_de_interpretes').doc(`${id}`).delete());

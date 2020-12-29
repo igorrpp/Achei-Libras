@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -10,27 +10,28 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   public selectedIndex = 0;
   public appPages = [
 
-  /*  {
-      title: 'itensVencidos',
-      url: '/itensvencidos',
-      icon: 'pricetag'
-    },
-    {
-      title: 'Novo Item',
-      url: '/itens-vencidos-novo',
-      icon: 'add-circle'
-
-    },*/
-   /* {
-      title: ' recuperar-senha',
-      url: '/recuperar-senha',
-      icon: ''
-
-    },
-    */  
+    /*  {
+        title: 'itensVencidos',
+        url: '/itensvencidos',
+        icon: 'pricetag'
+      },
+      {
+        title: 'Novo Item',
+        url: '/itens-vencidos-novo',
+        icon: 'add-circle'
+  
+      },*/
+    /* {
+       title: ' recuperar-senha',
+       url: '/recuperar-senha',
+       icon: ''
+ 
+     },
+     */
     /*{
       title: 'chat',
       url: '/chat',
@@ -38,13 +39,13 @@ export class AppComponent implements OnInit {
 
     },*/
     {
-      title: 'perfil do interprete' ,
+      title: 'perfil do interprete',
       url: '/interpretes-perfil',
       icon: 'save'
 
     },
     {
-      title: 'perfil do cliente' ,
+      title: 'perfil do cliente',
       url: '/clientes-perfil',
       icon: 'save'
 
@@ -62,8 +63,8 @@ export class AppComponent implements OnInit {
       icon: 'location'
     },
 
-    
-    
+
+
     // Opção para ficar no ap do interprete
     {
       title: 'interpretes',
@@ -88,9 +89,11 @@ export class AppComponent implements OnInit {
 
     },
     {
+
       title: 'Sair',
       url: '/logoff',
       icon: 'power'
+
     },
 
   ];
@@ -101,16 +104,16 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     public router: Router
   ) {
-   /* this.initializeApp();*/
+    /* this.initializeApp();*/
   }
-/*
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.router.navigateByUrl('splash');
-    });
-  }
-*/
+  /*
+    initializeApp() {
+      this.platform.ready().then(() => {
+        this.statusBar.styleDefault();
+        this.router.navigateByUrl('splash');
+      });
+    }
+  */
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
@@ -118,11 +121,11 @@ export class AppComponent implements OnInit {
     }
   }
 
-  toggleTheme(event){
-    if(event.detail.checked){
-      document.body.setAttribute('color-theme','dark');
+  toggleTheme(event) {
+    if (event.detail.checked) {
+      document.body.setAttribute('color-theme', 'dark');
     } else {
-      document.body.setAttribute('color-theme','light');
+      document.body.setAttribute('color-theme', 'light');
     }
   }
 }

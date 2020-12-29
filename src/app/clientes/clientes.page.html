@@ -6,9 +6,9 @@
     <ion-title>Clientes</ion-title>
   </ion-toolbar>
   <form>
-    <ion-searchbar #nome></ion-searchbar>
+    <ion-searchbar (ionChange)="pesquisar()" #nome ></ion-searchbar>
   </form>
-  <ion-button (click)="pesquisar()">Pesquisar</ion-button>
+<!-- <ion-button (click)="pesquisar()" size="full">Pesquisar</ion-button> -->
 
 </ion-header>
 

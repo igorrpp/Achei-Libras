@@ -57,17 +57,19 @@ export class ClientesUpdatePage implements OnInit {
   }
 
   atualizar() {
-
+    this.template.loading.then(load => {
+      load.present();
     this.ClienteServ.atualizar(this.cliente.id, this.formGroup.value).subscribe(data => {
       console.log(data);
-      this.template.loading;
+      
       this.template.myAlert('Atualizado com sucesso');
       var user = this.fb.auth().currentUser.uid;
     this.navCtrl.navigateForward(['/clientes-perfil-detalhe/', user]);
-
+    load.dismiss();
 
     })
   }
 
-}
+    )}
 
+}

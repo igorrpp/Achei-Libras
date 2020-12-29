@@ -14,6 +14,7 @@ import { InterpretesPerfilDetalhePage } from './interpretes-perfil-detalhe.page'
     FormsModule,
     IonicModule,
     InterpretesPerfilDetalhePageRoutingModule,
+    ReactiveFormsModule
   
   ],
   declarations: [InterpretesPerfilDetalhePage]

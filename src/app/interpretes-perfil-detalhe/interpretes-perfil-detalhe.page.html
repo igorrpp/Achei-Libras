@@ -18,40 +18,57 @@
     <ion-icon name="camera-outline"></ion-icon>
   </ion-button>
 
-  <form>
+  <form [formGroup]="formGroup">
     <ion-card>
-      <ion-badge color="success">Online</ion-badge>
-
 
 
       <ion-item>
+          <!-- Seleciona o status e salva no firebase-->
+        <ion-label>Status</ion-label>
+        <ion-select  type="text" formControlName="status" interface="action-sheet" (ionChange)="atualizar2()"  >
+          <ion-select-option value="Online">Online</ion-select-option>
+          <ion-select-option value="Offline">Offline</ion-select-option>
+          <ion-select-option value="Ocupado">Ocupado</ion-select-option>
+        </ion-select>
+       
+        <ion-badge color="warning" >{{interprete.status}}</ion-badge>
+
+
+      </ion-item>
+
+      <ion-item>
         <ion-label>CEP: </ion-label>
-        <ion-input readonly="readonly"> {{interprete.cep}} </ion-input>
+        <ion-input readonly="readonly" type="text" formControlName="cep" value="{{interprete.cep}}"> 
+        </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>CPF: </ion-label>
-        <ion-input readonly="readonly"> {{interprete.cpf}} </ion-input>
+        <ion-input readonly="readonly" type="text" formControlName="cpf" value="{{interprete.cpf}}"> 
+        </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>NOME: </ion-label>
-        <ion-input readonly="readonly"> {{interprete.nome}} </ion-input>
+        <ion-input readonly="readonly" type="text" formControlName="nome" value="{{interprete.nome}}">
+        </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label id="email">E-MAIL:</ion-label>
-        <ion-input readonly="readonly"> {{interprete.username}} </ion-input>
+        <ion-input readonly="readonly" type="text" formControlName="username" value="{{interprete.username}}">
+          </ion-input>
       </ion-item>
 
 
 
       <ion-item>
         <ion-label>ENDEREÇO:</ion-label>
-        <ion-input readonly="readonly"> {{interprete.endereco}} </ion-input>
+        <ion-input readonly="readonly" type="text" formControlName="endereco" value="{{interprete.endereco}}">
+        </ion-input>
       </ion-item>
 
-      
+
     </ion-card>
 
   </form>

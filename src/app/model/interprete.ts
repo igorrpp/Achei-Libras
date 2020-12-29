@@ -7,6 +7,7 @@ export class Interprete{
     grupo: string;
     username: string;
     telefone: string;
+    status: string;
    
 
 }

@@ -52,3 +52,8 @@ ion-label{
 ion-content{
     background-color: rgb(215, 255, 255);
 }
+
+.my-custom-interface .brown-option {
+    --color: #5e2c2c;
+    --color-hover: #ff00dd;
+  }
