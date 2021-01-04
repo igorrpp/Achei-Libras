@@ -47,7 +47,9 @@ export class InterpretesUpdatePage implements OnInit {
       grupo: [this.interprete.grupo, [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
       cpf: [this.interprete.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: [this.interprete.cep, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      endereco: [this.interprete.endereco, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      estado: [this.interprete.estado, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      cidade: [this.interprete.cidade, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      telefone: [this.interprete.telefone, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
 
 
     })

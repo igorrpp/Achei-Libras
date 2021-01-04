@@ -46,7 +46,6 @@ export class ClientesUpdatePage implements OnInit {
 
       username: [this.cliente.username, [Validators.email]],
       nome: [this.cliente.nome, [Validators.required, Validators.minLength(13), Validators.maxLength(32)]],
-      grupo: [this.cliente.grupo, [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
       deficiencia: [this.cliente.deficiencia, [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
       cpf: [this.cliente.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       telefone: [this.cliente.telefone, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
@@ -59,17 +58,18 @@ export class ClientesUpdatePage implements OnInit {
   atualizar() {
     this.template.loading.then(load => {
       load.present();
-    this.ClienteServ.atualizar(this.cliente.id, this.formGroup.value).subscribe(data => {
-      console.log(data);
-      
-      this.template.myAlert('Atualizado com sucesso');
-      var user = this.fb.auth().currentUser.uid;
-    this.navCtrl.navigateForward(['/clientes-perfil-detalhe/', user]);
-    load.dismiss();
+      this.ClienteServ.atualizar(this.cliente.id, this.formGroup.value).subscribe(data => {
+        console.log(data);
 
-    })
+        this.template.myAlert('Atualizado com sucesso');
+        var user = this.fb.auth().currentUser.uid;
+        this.navCtrl.navigateForward(['/clientes-perfil-detalhe/', user]);
+        load.dismiss();
+
+      })
+    }
+
+    )
   }
-
-    )}
 
 }

@@ -22,9 +22,10 @@ export class CalModalPage implements AfterViewInit {
   event = {
     title: '',
     desc: '',
-    startTime: null,
+    agendado: null,
     endTime: '',
     allDay: true
+
   };
  
   modalReady = false;
@@ -42,11 +43,12 @@ export class CalModalPage implements AfterViewInit {
       this.modalReady = true;      
     }, 0);
   }
- 
+
+  
   save() {
      // Realizar o cadastro
      console.log(`Esse é o titulo ${this.event.title}`);
-     console.log(`Esse é o hora: ${this.event.startTime}`);
+     console.log(`Esse é o hora: ${this.event.agendado}`);
      console.log(`Esse é o descrição: ${this.event.desc}`);
  
      // variavel "user" para capturar dados do usuario logado, e depois para salvar dados na coleção
@@ -67,9 +69,13 @@ export class CalModalPage implements AfterViewInit {
   onViewTitleChanged(title) {
     this.viewTitle = title;
   }
- 
+ /*
   onTimeSelected(ev) {    
     this.event.startTime = new Date(ev.selectedTime);
+  }
+  */
+  onTimeSelected() {    
+    this.event.agendado = new Date();
   }
  
   close() {

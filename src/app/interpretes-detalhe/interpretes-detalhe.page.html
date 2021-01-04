@@ -9,7 +9,7 @@
 
 
 <ion-content>
-  <ion-card>
+  <ion-card  id="cards">
     <img [src]="imagem" *ngIf="imagem" />
 
   </ion-card>
@@ -31,26 +31,21 @@
       </ion-item>
 
       <ion-item>
-        <ion-label id="email">E-MAIL:</ion-label>
-        <ion-input readonly="readonly"> {{interprete.username}} </ion-input>
+        <ion-label>Estado:</ion-label>
+        <ion-input readonly="readonly"> {{interprete.estado}} </ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label id="telefone">TELEFONE:</ion-label>
+        <ion-label>Cidade:</ion-label>
+        <ion-input readonly="readonly"> {{interprete.cidade}} </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Telefone:</ion-label>
         <ion-input readonly="readonly"> {{interprete.telefone}} </ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label>ENDEREÇO:</ion-label>
-        <ion-input readonly="readonly"> {{interprete.endereco}} </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>DEFICIÊNCIA:</ion-label>
-        <ion-input readonly="readonly"> {{interprete.deficiencia}} </ion-input>
-      </ion-item>
-
-
+      
     </ion-card>
 
 

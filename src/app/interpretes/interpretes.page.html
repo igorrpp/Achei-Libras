@@ -5,29 +5,34 @@
     </ion-buttons>
     <ion-title>Lista de interpretes</ion-title>
   </ion-toolbar>
+  <form>
+    <ion-searchbar (ionChange)="pesquisar()" #nome ></ion-searchbar>
+  </form>
 </ion-header>
 
 <ion-content>
 <ion-list>
 <ion-list-header lines="inset">
-  <ion-label color="dark">Recentes </ion-label>
+  <ion-label color="dark">Mais recentes </ion-label>
   
   <ion-button (click)="ionViewWillEnter()" ><ion-icon slot="start" name="refresh" ></ion-icon></ion-button>
   
   
 </ion-list-header>
-<ion-item lines="none" *ngFor="let i of interpretes">
+<ion-item  id="item" lines="none" *ngFor="let i of interpretes">
   <ion-avatar slot="start">
-    <img  [src]="imagem" *ngIf="imagem">
+    <img  [src]="imagem" *ngIf="imagem" >
   </ion-avatar>
+  <!-- src="{{downloadImage()}}"> -->
   
   <ion-label (click)="detalhe(i)">
-    <h3>Grupo {{i.grupo}}</h3>
-    <h1>Nome:{{i.nome}}</h1>
+   <p>{{i.id}}</p>
+   
+    <h2>{{i.nome}}</h2>
     <h3>CEP {{i.cep}}</h3>
-    <h3>Endereco {{i.endereco}}</h3>
-    <h3>Data: {{i.username}}</h3>
-    <h3>Status: {{i.status}}</h3>
+    <h3>Cidade:{{i.cidade}} - {{i.estado}}</h3>
+    <h3>Email: {{i.username}}</h3>
+    <p>Status: {{i.status}}</p>
  
     
     

@@ -19,10 +19,7 @@
       </ion-list-header>
 
       <!-- Lembrar de colocar uma lista suspensa em grupos com dois grupos pré selecionado-->
-      <ion-item>
-        <ion-label position="fixed">grupo</ion-label>
-        <ion-input  type="grupo" placeholder="grupo" formControlName="grupo"></ion-input>
-      </ion-item>
+     
 
       <ion-item>
         <ion-label position="fixed">E-mail</ion-label>
@@ -50,9 +47,17 @@
       </ion-item>
   
       <ion-item>
-        <ion-label position="fixed">Endereco</ion-label>
-        <ion-input  type="endereco" placeholder="Tipo de endereco" formControlName="endereco"></ion-input>
+        <ion-label position="fixed">Estado:</ion-label>
+        <ion-input type="text" placeholder="Escreva o de sua localizacao Complemento" formControlName="estado">
+        </ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Cidade:</ion-label>
+        <ion-input type="text" placeholder="Escreva o de sua localizacao Complemento" formControlName="cidade">
+        </ion-input>
+      </ion-item>
+      
     </ion-list>
 
     <ion-button expand="block" (click)="cadastrarUsers()">Cadastrar</ion-button>

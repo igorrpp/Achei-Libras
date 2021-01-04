@@ -8,7 +8,7 @@ import { UtilService } from './ultil.service';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { File } from '@ionic-native/file/ngx';
-import * as firebase from 'firebase';
+import { Interprete } from '../model/interprete';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +35,8 @@ export class InterpreteService {
   listar(): Observable<any> {
     return this.firestore.collection(this.collection).snapshotChanges();
   }
+
+  
 
   buscaPorId(id: string): Observable<any> {
     return this.firestore.collection
@@ -69,6 +71,25 @@ export class InterpreteService {
 
   }
 
+  buscaPorNome(nome: string): Observable<any> {
+
+    // Observable -> Aguardar resposta do servidor
+    return from(new Observable(observe => { // converter para Observable
+
+      this.firestore.collection(this.collection).ref.orderBy("nome")
+        .startAt(nome).startAt(nome).endAt(nome + "\uf8ff").get().then(response => {
+          let lista: Interprete[] = [];
+          response.docs.map(obj => {
+            // será repetido para cada registro, cada registro do Firestore se chama obj
+            let interprete: Interprete = new Interprete();
+            interprete.setData(obj.data());// obj.payload.doc.data() -> Dados do cliente
+            interprete.id = obj.id; // inserindo ID
+            lista.push(interprete); // adicionando o cliente na lista // push é adicionar
+          });
+          observe.next(lista);
+        })
+    }))
+  }
 
   obterFotoCamera = new Observable((observe) => {
 

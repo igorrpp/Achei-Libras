@@ -31,14 +31,15 @@ export class CadastrarInterpretePage implements OnInit {
   }
   iniciarForm() {
     this.formGroup = this.formBuilder.group({
-      
+
       username: ['', [Validators.email]],
       password: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
       nome: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
-      grupo: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      endereco: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      cidade: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      estado: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      telefone: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
 
 
     })
@@ -105,5 +106,5 @@ export class CadastrarInterpretePage implements OnInit {
   }
 
 
- 
+
 }

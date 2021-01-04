@@ -95,7 +95,9 @@ export class InterpretesPerfilDetalhePage implements OnInit {
       grupo: [this.interprete.grupo],
       cpf: [this.interprete.cpf],
       cep: [this.interprete.cep],
-      endereco: [this.interprete.endereco],
+      telefone: [this.interprete.telefone],
+      cidade: [this.interprete.cidade],
+      estado: [this.interprete.estado],
 
 
 

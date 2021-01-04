@@ -22,15 +22,6 @@ section {
     
 }
 
-#endereco{
-    background-color: blue;
-    color: white;
-    border-collapse: 506px;
-    text-align: center;
-    width: 450px;
-    left: 2px;
-}
-
 ion-label{
     font-weight: bold;
 }
@@ -53,7 +44,13 @@ ion-content{
     background-color: rgb(215, 255, 255);
 }
 
-.my-custom-interface .brown-option {
-    --color: #5e2c2c;
-    --color-hover: #ff00dd;
-  }
+#cards{
+   text-align: center;
+    border-style: solid;
+    border-color: rgba(59, 78, 78, 0.329);
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}

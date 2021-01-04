@@ -56,6 +56,7 @@ export class CalendarioPage implements OnInit {
    
     modal.onDidDismiss().then((result) => {
       if (result.data && result.data.event) {
+     
         let event = result.data.event;
         if (event.allDay) {
           let start = event.startTime;
@@ -76,7 +77,7 @@ export class CalendarioPage implements OnInit {
         }
         this.eventSource.push(result.data.event);
         this.myCal.loadEvents();
-      }
+      } 
     });
   }
   /// fim OPEN CALL

@@ -9,7 +9,7 @@
 
 
 <ion-content>
-  <ion-card>
+  <ion-card id="cards">
     <img [src]="imagem" *ngIf="imagem" (click)="foto()" />
 
   </ion-card>
@@ -60,11 +60,22 @@
           </ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label>Estado:</ion-label>
+        <ion-input readonly="readonly" type="text" formControlName="estado" value="{{interprete.estado}}">
+        </ion-input>
+      </ion-item>
 
 
       <ion-item>
-        <ion-label>ENDEREÇO:</ion-label>
-        <ion-input readonly="readonly" type="text" formControlName="endereco" value="{{interprete.endereco}}">
+        <ion-label>Cidade:</ion-label>
+        <ion-input readonly="readonly" type="text" formControlName="cidade" value="{{interprete.cidade}}">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Telefone:</ion-label>
+        <ion-input readonly="readonly" type="text" formControlName="telefone" value="{{interprete.telefone}}">
         </ion-input>
       </ion-item>
 
@@ -73,12 +84,8 @@
 
   </form>
 
-  <ion-button expand="block" (click)="excluir2()" color="danger">
-    <ion-icon name="trash-outline"></ion-icon>
-  </ion-button>
-
-  <ion-button expand="block" (click)="atualizar(interprete)" color="primary">
-    <ion-icon name="clipboard-outline"></ion-icon>
+  <ion-button expand="block" (click)="atualizar(interprete)" color="primary">Atualizar
+  
   </ion-button>
 
 </ion-content>
