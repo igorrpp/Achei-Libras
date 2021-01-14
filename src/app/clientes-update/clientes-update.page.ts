@@ -18,12 +18,13 @@ export class ClientesUpdatePage implements OnInit {
 
   formGroup: FormGroup;
   cliente: Cliente = new Cliente();
+  user: string = '';
 
   constructor(private formBuilder: FormBuilder,
     private ClienteServ: ClienteService,
     private template: TemplateService,
     private navCtrl: NavController,
-    private fb: FirebaseApp,
+
 
     private route: ActivatedRoute,
   ) {
@@ -50,7 +51,10 @@ export class ClientesUpdatePage implements OnInit {
       cpf: [this.cliente.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       telefone: [this.cliente.telefone, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: [this.cliente.cep, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      endereco: [this.cliente.endereco, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      cidade: [this.cliente.cidade, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      estado: [this.cliente.estado, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      status: [this.cliente.status, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+
 
     })
   }
@@ -62,8 +66,9 @@ export class ClientesUpdatePage implements OnInit {
         console.log(data);
 
         this.template.myAlert('Atualizado com sucesso');
-        var user = this.fb.auth().currentUser.uid;
-        this.navCtrl.navigateForward(['/clientes-perfil-detalhe/', user]);
+        
+      
+        this.navCtrl.navigateForward(['/clientes-perfil-detalhe']);
         load.dismiss();
 
       })

@@ -26,7 +26,6 @@ export class InterpretesDetalhePage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private interpreteServ : InterpreteService,
-    private navCtrl: NavController,
     private fireStorage: AngularFireStorage,
   ) { }
 

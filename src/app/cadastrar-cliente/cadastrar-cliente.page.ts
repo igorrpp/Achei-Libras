@@ -13,7 +13,7 @@ import { TemplateService } from '../services/template.service';
 export class CadastrarClientePage implements OnInit {
 
   formGroup: FormGroup;
-  public teste: any = {};
+
   message: string = null;
 
   constructor(private formBuilder: FormBuilder,
@@ -41,7 +41,8 @@ export class CadastrarClientePage implements OnInit {
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       telefone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      endereco: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      cidade: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      estado: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
 
     })
   }

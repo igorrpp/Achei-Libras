@@ -9,6 +9,8 @@ import { UtilService } from './ultil.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Cliente } from '../model/cliente';
+import { FirebaseApp } from '@angular/fire';
+import { NavController } from '@ionic/angular';
 
 
 @Injectable({
@@ -28,6 +30,8 @@ export class ClienteService {
     private fileChooser: FileChooser,
     private file: File,
     private webview: WebView,
+    private fb: FirebaseApp,
+    private navCtrl: NavController,
   ) { }
 
   listar(): Observable<any> {
@@ -58,6 +62,16 @@ export class ClienteService {
     return this.firestore.collection
       (this.collection).doc(id).snapshotChanges();
   }
+
+  capId() {
+
+    const user = this.fb.auth().currentUser.uid;
+    
+     
+  return  user;
+}
+
+
 
 
   atualizar(id: string, dados: any): Observable<any> {
@@ -123,4 +137,35 @@ export class ClienteService {
       this.fireStorage.storage.ref().child(`/Cadastros_de_clientes/${nome}.jpg`).put(fotoBlob));
     return observable;
   }
+
+  atualizaPerfil(uid, dados) {
+    return from(new Observable(observe => {
+
+        this.firestore.collection('Cadastros_de_clientes').doc(uid).set(dados).then(response => {
+            observe.next("Atualizado com sucesso!");
+        }, (err) => {
+            observe.error("Erro ao atualizar!");
+        })
+
+    }));
+}
+
+buscaPerfilPorId(uid: any): Observable<any> { // uid -> authenticator
+  return from(new Observable(observe => {
+      this.firestore.collection('Cadastros_de_clientes').doc(uid).snapshotChanges().subscribe(response => {
+          if (response.payload.exists !== false) {
+
+              let cliente: Cliente = new Cliente();
+              cliente.id = response.payload.id;
+              cliente.setData(response.payload.data());
+              observe.next(cliente);
+          }
+
+      }, (err) => {
+          observe.error("Erro ao buscar o ID!");
+      })
+
+  }));
+}
+
 }

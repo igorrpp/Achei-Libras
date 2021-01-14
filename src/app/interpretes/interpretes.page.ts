@@ -40,21 +40,21 @@ export class InterpretesPage implements OnInit {
      this.interpreteServ.listar().subscribe(data => {
        
         data.map(i =>{
+          let ref = this.fireStorage.storage.ref().child(`/interpretes-foto/${ i.payload.doc.id}.jpg`)
+        ref.getDownloadURL().then(url => {
+
           let interprete : Interprete = i.payload.doc.data() as Interprete;
           this.codImage =  interprete.id = i.payload.doc.id as string;
+          interprete.imagem = url;
+        
+          console.log(this.codImage);
           
-          this.downloadImage();
 
          this.interpretes.push(interprete);
-      
+        })
         })
         load.dismiss();
-        console.log(this.interpretes);
-        
-        console.log(`Aqui está!!!!! ${this.interpretes}`);
-        console.log(this.interpretes);
-       
-
+      
         
        
       })
@@ -67,11 +67,10 @@ export class InterpretesPage implements OnInit {
     let ref = this.fireStorage.storage.ref().child(`/interpretes-foto/${this.codImage}.jpg`)
         ref.getDownloadURL().then(url => {
       this.imagem = url;
-      console.log(ref);
-      console.log(ref);
+      console.log(this.imagem);
+      console.log(this.imagem);
       
-     
-      
+
     }, err => {
       this.imagem =
        'assets/img/user.png';

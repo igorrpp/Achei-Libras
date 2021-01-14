@@ -23,10 +23,13 @@ export class ClientesPage implements OnInit {
     private clienteServ : ClienteService,
     private template: TemplateService,
     private navCtrl: NavController,
-    private fireStorage: AngularFireStorage,) { }
+    private fireStorage: AngularFireStorage,) { 
+
+    }
 
   ngOnInit() {
     this.downloadImage();
+  
   }
 
   ionViewWillEnter() {
@@ -68,6 +71,18 @@ pesquisar(){
     
     
   });
+}
+teste(){
+  if (document.getElementById("demo").innerHTML == 'Online') {
+    document.getElementById("demo").style.color= "Blue";
+
+  }else if (document.getElementById("demo").innerHTML == 'Offline') {
+    document.getElementById("demo").style.color = "#ff0000"
+
+  } else {
+    (document.getElementById("demo").style.color = "red")
+  }
+
 }
 
 }

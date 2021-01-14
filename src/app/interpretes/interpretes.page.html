@@ -21,17 +21,18 @@
 </ion-list-header>
 <ion-item  id="item" lines="none" *ngFor="let i of interpretes">
   <ion-avatar slot="start">
-    <img  [src]="imagem" *ngIf="imagem" >
+    <img  [src]="i.imagem">
   </ion-avatar>
   <!-- src="{{downloadImage()}}"> -->
   
   <ion-label (click)="detalhe(i)">
-   <p>{{i.id}}</p>
+
    
     <h2>{{i.nome}}</h2>
-    <h3>CEP {{i.cep}}</h3>
-    <h3>Cidade:{{i.cidade}} - {{i.estado}}</h3>
+    <h3>CEP: {{i.cep}}</h3>
+    <h3>Cidade:{{i.cidade}} </h3>
     <h3>Email: {{i.username}}</h3>
+    <h3>Estado: {{i.estado}}</h3>
     <p>Status: {{i.status}}</p>
  
     

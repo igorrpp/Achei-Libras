@@ -9,7 +9,7 @@
 
 
 <ion-content>
-  <ion-card>
+  <ion-card id="cards">
     <img [src]="imagem" *ngIf="imagem" (click)="foto()" />
 
   </ion-card>
@@ -18,15 +18,33 @@
     <ion-icon name="camera-outline"></ion-icon>
   </ion-button>
 
-  <form>
+  <form [formGroup]="formGroup">
     <ion-card>
-      <ion-badge color="success">Online</ion-badge>
+     
+      <ion-item>
+        <!-- Seleciona o status e salva no firebase-->
+      <ion-label>Status</ion-label>
+      <ion-select  type="text" formControlName="status" interface="action-sheet" (ionChange)="atualizar2()"  >
+        <ion-select-option value="Online">Online</ion-select-option>
+        <ion-select-option value="Offline">Offline</ion-select-option>
+        <ion-select-option value="Ocupado">Ocupado</ion-select-option>
+        
+      </ion-select>
+      <p id="demo">{{cliente.status}}</p>
+          //<ion-badge  color="warning" >{{cliente.status}}</ion-badge>
+     
+
+  
+    </ion-item>
+
+  
+    <ion-button (click)="myFunction()">Try it</ion-button>
 
       <ion-item>
-        <ion-label>Deficiência: </ion-label>
+        <ion-label>DEFICIÊNCIA:</ion-label>
         <ion-input readonly="readonly"> {{cliente.deficiencia}} </ion-input>
       </ion-item>
-  
+
       <ion-item>
         <ion-label>CEP: </ion-label>
         <ion-input readonly="readonly"> {{cliente.cep}} </ion-input>
@@ -52,15 +70,17 @@
         <ion-input readonly="readonly"> {{cliente.telefone}} </ion-input>
       </ion-item>
 
-
+      <ion-item>
+        <ion-label>Estado:</ion-label>
+        <ion-input readonly="readonly"> {{cliente.estado}} </ion-input>
+      </ion-item>
 
       <ion-item>
-        <ion-label>ENDEREÇO:</ion-label>
-        <ion-input readonly="readonly"> {{cliente.endereco}} </ion-input>
+        <ion-label>Cidade:</ion-label>
+        <ion-input readonly="readonly"> {{cliente.cidade}} </ion-input>
       </ion-item>
 
 
-      
     </ion-card>
 
   </form>

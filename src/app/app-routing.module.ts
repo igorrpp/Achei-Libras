@@ -116,72 +116,58 @@ const routes: Routes = [
   },
   {
     path: 'cal-modal',
-    loadChildren: () => import('./pages/cal-modal/cal-modal.module').then( m => m.CalModalPageModule)
+    loadChildren: () => import('./pages/cal-modal/cal-modal.module').then(m => m.CalModalPageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'calendario',
-    loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
+    loadChildren: () => import('./calendario/calendario.module').then(m => m.CalendarioPageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
+
+
   {
-    path: 'interpretes-perfil',
-    loadChildren: () => import('./interpretes-perfil/interpretes-perfil.module').then( m => m.InterpretesPerfilPageModule)
-    , canActivate: [AngularFireAuthGuard],
-    data: { àuthGuardPipe: redirectToLogin }
-  },
-  
-  {
-    path: 'interpretes-perfil-detalhe/:id',
-    loadChildren: () => import('./interpretes-perfil-detalhe/interpretes-perfil-detalhe.module').then( m => m.InterpretesPerfilDetalhePageModule)
+    path: 'interpretes-perfil-detalhe',
+    loadChildren: () => import('./interpretes-perfil-detalhe/interpretes-perfil-detalhe.module').then(m => m.InterpretesPerfilDetalhePageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'interpretes-update/:id',
-    loadChildren: () => import('./interpretes-update/interpretes-update.module').then( m => m.InterpretesUpdatePageModule)
+    loadChildren: () => import('./interpretes-update/interpretes-update.module').then(m => m.InterpretesUpdatePageModule)
     , canActivate: [AngularFireAuthGuard],
     data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'interpretes-perfil-foto/:id',
-    loadChildren: () => import('./interpretes-perfil-foto/interpretes-perfil-foto.module').then( m => m.InterpretesPerfilFotoPageModule)
+    loadChildren: () => import('./interpretes-perfil-foto/interpretes-perfil-foto.module').then(m => m.InterpretesPerfilFotoPageModule)
     , canActivate: [AngularFireAuthGuard],
-    data: { àuthGuardPipe: redirectToLogin } 
+    data: { àuthGuardPipe: redirectToLogin }
   },
+
   {
-    path: 'clientes-perfil',
-    loadChildren: () => import('./clientes-perfil/clientes-perfil.module').then( m => m.ClientesPerfilPageModule)
+    path: 'clientes-perfil-detalhe',
+    loadChildren: () => import('./clientes-perfil-detalhe/clientes-perfil-detalhe.module').then(m => m.ClientesPerfilDetalhePageModule)
     , canActivate: [AngularFireAuthGuard],
-    data: { àuthGuardPipe: redirectToLogin } 
-  },
-  {
-    path: 'clientes-perfil-detalhe/:id',
-    loadChildren: () => import('./clientes-perfil-detalhe/clientes-perfil-detalhe.module').then( m => m.ClientesPerfilDetalhePageModule)
-    , canActivate: [AngularFireAuthGuard],
-    data: { àuthGuardPipe: redirectToLogin } 
+    data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'clientes-update/:id',
-    loadChildren: () => import('./clientes-update/clientes-update.module').then( m => m.ClientesUpdatePageModule)
+    loadChildren: () => import('./clientes-update/clientes-update.module').then(m => m.ClientesUpdatePageModule)
     , canActivate: [AngularFireAuthGuard],
-    data: { àuthGuardPipe: redirectToLogin } 
+    data: { àuthGuardPipe: redirectToLogin }
   },
   {
     path: 'sobre',
-    loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule)
+    loadChildren: () => import('./sobre/sobre.module').then(m => m.SobrePageModule)
   },
   {
     path: 'splash',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./splash/splash.module').then(m => m.SplashPageModule)
   },
-
-
-
-
-
+ 
 ];
 
 @NgModule({

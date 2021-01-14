@@ -23,8 +23,8 @@ export class InterpretesUpdatePage implements OnInit {
     private template: TemplateService,
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    private fb: FirebaseApp,
-   ) {
+
+  ) {
     this.iniciarForm();
   }
 
@@ -44,12 +44,13 @@ export class InterpretesUpdatePage implements OnInit {
 
       username: [this.interprete.username, [Validators.email]],
       nome: [this.interprete.nome, [Validators.required, Validators.minLength(13), Validators.maxLength(16)]],
-      grupo: [this.interprete.grupo, [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
       cpf: [this.interprete.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       cep: [this.interprete.cep, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       estado: [this.interprete.estado, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
       cidade: [this.interprete.cidade, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
       telefone: [this.interprete.telefone, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+      status: [this.interprete.status, [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+
 
 
     })
@@ -61,9 +62,9 @@ export class InterpretesUpdatePage implements OnInit {
       this.template.loading;
       this.template.myAlert('Atualizado com sucesso');
 
-      var user = this.fb.auth().currentUser.uid;
-      this.navCtrl.navigateForward(['/interpretes-perfil-detalhe/', user]);
-  
+      var user = this.InterpreteServ.capId();
+      this.navCtrl.navigateForward(['/interpretes-perfil-detalhe']);
+
 
 
     })

@@ -16,11 +16,11 @@ import * as firebase from 'firebase';
 export class RecuperarSenhaPage implements OnInit {
   formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-
-    private menuCtrl: MenuController,
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AngularFireAuth,
     private template: TemplateService,
-    private afs: AngularFirestore,) { }
+  ) { }
 
 
   ngOnInit() {
@@ -38,8 +38,8 @@ export class RecuperarSenhaPage implements OnInit {
 
     this.template.loading.then(load => {
       load.present();
-
-      var email = firebase.auth();
+     
+      var email = this.auth
       var emailAddress = this.formGroup.controls['username'].value;
 
       email.sendPasswordResetEmail(emailAddress).then(function () {

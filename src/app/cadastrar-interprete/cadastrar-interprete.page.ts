@@ -28,6 +28,8 @@ export class CadastrarInterpretePage implements OnInit {
   }
 
   ngOnInit() {
+
+    
   }
   iniciarForm() {
     this.formGroup = this.formBuilder.group({

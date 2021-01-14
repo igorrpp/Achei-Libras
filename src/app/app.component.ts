@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+import { Button } from 'protractor';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -40,13 +42,15 @@ export class AppComponent implements OnInit {
     },*/
     {
       title: 'perfil do interprete',
-      url: '/interpretes-perfil',
-      icon: 'save'
+      url: '/interpretes-perfil-detalhe',
+      icon: 'save',
+      
 
     },
+    
     {
       title: 'perfil do cliente',
-      url: '/clientes-perfil',
+      url: '/clientes-perfil-detalhe',
       icon: 'save'
 
     },
@@ -102,7 +106,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
-    public router: Router
+    public router: Router,
+    private auth: AngularFireAuth,
   ) {
     /* this.initializeApp();*/
   }
@@ -114,7 +119,11 @@ export class AppComponent implements OnInit {
       });
     }
   */
+ 
   ngOnInit() {
+    
+
+    
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());

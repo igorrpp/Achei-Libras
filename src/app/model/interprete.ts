@@ -10,6 +10,7 @@ export class Interprete{
     username: string;
     telefone: string;
     status: string;
+    imagem: string;
    
     setData(objFirebase : any){
         this.cep = objFirebase.cep;
@@ -22,6 +23,8 @@ export class Interprete{
         this.telefone = objFirebase.telefone;
         this.cidade = objFirebase.cidade;
         this.estado  = objFirebase.estado;
+        this.status  = objFirebase.status;
+   
     }
 
 }

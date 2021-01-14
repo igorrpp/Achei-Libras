@@ -9,6 +9,8 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Interprete } from '../model/interprete';
+import { FirebaseApp } from '@angular/fire';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +31,8 @@ export class InterpreteService {
     private fileChooser: FileChooser,
     private file: File,
     private webview: WebView,
+    private fb: FirebaseApp,
+    private navCtrl: NavController,
   ) { }
 
 
@@ -36,7 +40,31 @@ export class InterpreteService {
     return this.firestore.collection(this.collection).snapshotChanges();
   }
 
-  
+  capId() {
+
+    const user = this.fb.auth().currentUser.uid;
+    
+     
+  return  user;
+}
+buscaPerfilPorId(uid: any): Observable<any> { // uid -> authenticator
+  return from(new Observable(observe => {
+      this.firestore.collection('Cadastros_de_interpretes').doc(uid).snapshotChanges().subscribe(response => {
+          if (response.payload.exists !== false) {
+
+              let interprete: Interprete = new Interprete();
+              interprete.id = response.payload.id;
+              interprete.setData(response.payload.data());
+              observe.next(interprete);
+          }
+
+      }, (err) => {
+          observe.error("Erro ao buscar o ID!");
+      })
+
+  }));
+}
+
 
   buscaPorId(id: string): Observable<any> {
     return this.firestore.collection
@@ -141,6 +169,18 @@ export class InterpreteService {
       this.fireStorage.storage.ref().child(`/interpretes-foto/${nome}.jpg`).put(fotoBlob));
     return observable;
   }
+
+  atualizaPerfil(uid, dados) {
+    return from(new Observable(observe => {
+
+        this.firestore.collection('Cadastros_de_interpretes').doc(uid).set(dados).then(response => {
+            observe.next("Atualizado com sucesso!");
+        }, (err) => {
+            observe.error("Erro ao atualizar!");
+        })
+
+    }));
+}
 
 
 }

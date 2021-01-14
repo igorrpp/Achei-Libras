@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseApp } from '@angular/fire';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Interprete } from '../model/interprete';
 import { InterpreteService } from '../services/interprete.service';
@@ -19,37 +18,34 @@ export class InterpretesPerfilDetalhePage implements OnInit {
   formGroup: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
     private interpreteServ: InterpreteService,
     private fireStorage: AngularFireStorage,
-    private navCtrl: NavController,
-    private fb: FirebaseApp,
+    private navCtrl: NavController,  
     private formBuilder: FormBuilder,
+    private auth: AngularFireAuth,
+    
 
 
-  ) { }
+  ) { 
+    this.iniciarForm();
+    this.auth.currentUser.then(response=> {
+      this.interpreteServ.buscaPerfilPorId(response.uid).subscribe(response=>{
+        this.interprete = response;
+        this.iniciarForm();
+        this.downloadImage()
+      })
+    })
+  }
 
 
   ngOnInit() {
-    this.route.paramMap.subscribe(url => {
-      let id = url.get('id');
-      this.interpreteServ.buscaPorId(id).subscribe(data => {
-        this.interprete = data.payload.data();
-        this.interprete.id = data.payload.id as string;
-        console.log(this.interprete);
-      })
-    })
-    this.downloadImage()
-    this.iniciarForm();
-
-
-
+   
   }
   downloadImage() {
     // código para receber o id do usuário logado
 
-    var uid = this.fb.auth().currentUser.uid;
-    let ref = this.fireStorage.storage.ref().child(`/interpretes-foto/${uid}.jpg`)
+    this.auth.currentUser.then(response=> {
+    let ref = this.fireStorage.storage.ref().child(`/interpretes-foto/${response.uid}.jpg`)
     ref.getDownloadURL().then(url => {
       this.imagem = url;
 
@@ -58,11 +54,14 @@ export class InterpretesPerfilDetalhePage implements OnInit {
       this.imagem =
         'assets/img/user.png';
     })
+  })
   }
 
-  atualizar(uid) {
-    uid = this.fb.auth().currentUser.uid;
-    this.navCtrl.navigateForward(['/interpretes-update', uid]);
+  atualizar() {
+    this.auth.currentUser.then(response=>{
+
+    this.navCtrl.navigateForward(['/interpretes-update', response.uid]);
+  })
   }
 
   foto() {
@@ -98,23 +97,20 @@ export class InterpretesPerfilDetalhePage implements OnInit {
       telefone: [this.interprete.telefone],
       cidade: [this.interprete.cidade],
       estado: [this.interprete.estado],
-
-
-
-    
       })
     }
-
-  atualizar2() {
-
-    this.interpreteServ.atualizar2(this.interprete.id, this.formGroup.value).subscribe(data => {
-      console.log(data);
-
-      var user = this.fb.auth().currentUser.uid;
-      this.navCtrl.navigateForward(['/interpretes-perfil-detalhe/', user]);
-
-
-
-    })
-  }
+    
+    atualizar2(){
+    
+      this.auth.currentUser.then(response=>{ // auth.currentUser -> Obten dados do usuario
+        // envio uid -> idUsuário
+        // this.formGroup.value -> Dados preenchidos nos campos
+        this.interpreteServ.atualizaPerfil(response.uid,this.formGroup.value).subscribe(response=>{
+          console.log(response);
+          console.log(this.formGroup.value  )
+        })
+      })
+    }
+  
+  
 }

@@ -27,11 +27,12 @@
     <img id="img" [src]="imagem" *ngIf="imagem">
   </ion-avatar>
   
-  <ion-label (click)="detalhe(i)">
+  <ion-label (click)="detalhe(i)" id="demo" > {{i.status}}
     
     <h2>{{i.nome}}</h2>
     <h4>Endereço: {{i.endereco}}</h4>
     <h5>Deficiência: {{i.deficiencia}}</h5>
+    <p>{{i.status}}</p>
     <p id="emailColor">E-MAIL: {{i.username}}</p>
   
    
@@ -39,7 +40,7 @@
     
   </ion-label>
 </ion-item>
-
+<ion-button (click)="teste()">Teste aqui</ion-button>
 
 </ion-list>
 

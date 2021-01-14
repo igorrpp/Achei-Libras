@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Cliente } from '../model/cliente';
 import { ClienteService } from '../services/cliente.service';
-import { InterpreteService } from '../services/interprete.service';
+
 
 @Component({
   selector: 'app-clientes-detalhe',

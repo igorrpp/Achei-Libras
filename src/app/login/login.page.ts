@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { TemplateService } from '../services/template.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Interprete } from '../model/interprete';
-import { Firebase } from '@ionic-native/firebase';
+
 
 
 
@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private menuCtrl: MenuController,
     private template: TemplateService,
-    private afs: AngularFirestore,
+
     
    
 
