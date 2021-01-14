@@ -31,7 +31,7 @@ export class InterpretesPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.interpretes = [];
+     this.interpretes = [];
   
     
     this.template.loading.then(load => {
